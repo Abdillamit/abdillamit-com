@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/home/abdillamit/Downloads/abdillamit-com/src/pages/[lang]"
+    ],
+    "allow": [
+      "Bash(npm install *)"
+    ]
+  }
+}

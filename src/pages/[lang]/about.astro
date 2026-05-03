@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { type Lang, languages } from '@/i18n/ui'
+import { useTranslations } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }))
+}
+
+const { lang } = Astro.params as { lang: Lang }
+const t = useTranslations(lang)
+
+const bio = {
+  ru: `
+    <p>Меня зовут Абдылламит. Я инженер-программист из Бишкека, Кыргызстан. В разработке с 2022 года.</p>
+    <p>Начинал не в городе. Я из деревни Баул Лейлекского района Баткенской области — самый юг Кыргызстана. В 9-м классе брат Данияр познакомил меня с ManchoDevs — я приехал в офис в Бишкеке, увидел команду за работой, ощутил атмосферу и понял, чем хочу заниматься. Вернулся домой и начал учиться самостоятельно: Udemy, YouTube, HTML, CSS, JS, React. Писал мини-проекты, решал задачи на LeetCode — часто в промежутках между пастьбой коров. Нестандартный путь, но он привёл туда, куда надо.</p>
+    <p>Сейчас работаю в <a href="https://mancho.dev">ManchoDevs</a>. Основные продукты, над которыми работаю — <a href="https://finik.kg">finik.kg</a> (платёжная платформа), <a href="https://slonexpress.com">slonexpress</a> и <a href="https://www.mancho.dev/school/">mancho.school</a>.</p>
+    <p>Стек: TypeScript (strict), React 18, Gatsby.js, Apollo GraphQL, Redux. AWS web services.</p>
+    <p>Параллельно изучаю английский, целюсь на B2. Иногда пишу сюда мысли о разработке, инструментах и о том, что узнаю по ходу.</p>
+    <p>Связаться: <a href="mailto:abdillamit08@gmail.com">abdillamit08@gmail.com</a> · <a href="https://github.com/Abdillamit">GitHub</a> · <a href="https://t.me/Abd1llamit">Telegram</a> · <a href="https://www.linkedin.com/in/abdillamit-mamytov/">LinkedIn</a></p>
+  `,
+  en: `
+    <p>My name is Abdyllamit. I'm a software engineer from Bishkek, Kyrgyzstan. I've been writing code professionally since 2022.</p>
+    <p>I didn't start in a city. I'm from Baul village in Leilek district, Batken region — the far south of Kyrgyzstan. In 9th grade, my brother Daniyar introduced me to ManchoDevs. I visited their office in Bishkek, saw the team in action, felt the energy — and knew what I wanted to do. I went back home and taught myself: Udemy, YouTube, HTML, CSS, JS, React. I built mini-projects and solved LeetCode problems — often in between herding cows and sheep. An unusual path, but it got me here.</p>
+    <p>I currently work at <a href="https://mancho.dev">ManchoDevs</a>. The main products I work on are <a href="https://finik.kg">finik.kg</a> (a payment platform), <a href="https://slonexpress.com">slonexpress</a>, and <a href="https://www.mancho.dev/school/">mancho.school</a>.</p>
+    <p>Stack: TypeScript (strict), React 18, Gatsby.js, Apollo GraphQL, Redux. AWS web services.</p>
+    <p>I'm also learning English (targeting B2). Occasionally I write notes here about development, tools, and things I'm figuring out.</p>
+    <p>Contact: <a href="mailto:abdillamit08@gmail.com">abdillamit08@gmail.com</a> · <a href="https://github.com/Abdillamit">GitHub</a> · <a href="https://t.me/Abd1llamit">Telegram</a> · <a href="https://www.linkedin.com/in/abdillamit-mamytov/">LinkedIn</a></p>
+  `,
+  ky: `
+    <p>Менин атым Абдылламит. Мен Бишкектен программалык инженермин. 2022-жылдан бери иштейм.</p>
+    <p>Мен шаардан баштаган жокмун. Мен Баткен облусунун Лейлек районунун Баул айылынанмын — Кыргызстандын түштүк четинде. 9-класста агам Данияр мага ManchoDevs менен тааныштырды — Бишкектеги кеңсеге барып, командасын иштеп жатканда көрдүм, атмосферасын сездим жана эмне кылгым келерин түшүндүм. Айылга кайтып, өзүм үйрөнө баштадым: Udemy, YouTube, HTML, CSS, JS, React. Мини-долбоорлор жасадым, LeetCode'до маселелерди чештим — көбүнчө уй-кой багуунун ортосунда. Адаттан тыш жол, бирок мени керектүү жерге алып келди.</p>
+    <p>Учурда <a href="https://mancho.dev">ManchoDevs</a> компаниясында иштейм. Негизги продукттар — <a href="https://finik.kg">finik.kg</a> (төлөм платформасы), <a href="https://slonexpress.com">slonexpress</a> жана <a href="https://www.mancho.dev/school/">mancho.school</a>.</p>
+    <p>Стек: TypeScript (strict), React 18, Gatsby.js, Apollo GraphQL, Redux. AWS web services.</p>
+    <p>Ошондой эле англис тилин үйрөнүп жатам, максат — B2 деңгээли. Кээде бул жерге иштеп чыгаруу, куралдар жана үйрөнгөн нерселерим тууралуу жазам.</p>
+    <p>Байланыш: <a href="mailto:abdillamit08@gmail.com">abdillamit08@gmail.com</a> · <a href="https://github.com/Abdillamit">GitHub</a> · <a href="https://t.me/Abd1llamit">Telegram</a> · <a href="https://www.linkedin.com/in/abdillamit-mamytov/">LinkedIn</a></p>
+  `
+}
+---
+
+<BaseLayout title={`${t('about.title')} — Abdillamit`} description={t('about.title')} lang={lang} pageKey="about">
+  <h1>{t('about.title')}</h1>
+  <Fragment set:html={bio[lang]} />
+</BaseLayout>

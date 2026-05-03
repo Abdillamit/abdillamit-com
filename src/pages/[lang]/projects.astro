@@ -1,0 +1,128 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { type Lang, languages } from '@/i18n/ui'
+import { useTranslations } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }))
+}
+
+const { lang } = Astro.params as { lang: Lang }
+const t = useTranslations(lang)
+
+interface Project {
+  name: string
+  url: string
+  role: string
+  description: string
+  stack: string[]
+}
+
+const projects: Record<Lang, Project[]> = {
+  ru: [
+    {
+      name: 'finik.kg',
+      url: 'https://finik.kg',
+      role: 'SWE / Fullstack',
+      description: 'Платёжная платформа для бизнеса в Кыргызстане.',
+      stack: ['React', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'slonexpress',
+      url: 'https://slonexpress.com',
+      role: 'SWE / Fullstack',
+      description: 'Сервис доставки. Веб-интерфейс для пользователей и панель управления заказами.',
+      stack: ['React', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'mancho.school',
+      url: 'https://www.mancho.dev/school/',
+      role: 'SWE / Fullstack',
+      description: 'Образовательная платформа ManchoDevs. Курсы по SWE.',
+      stack: ['Gatsby.js', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'ManchoDevs',
+      url: 'https://mancho.dev',
+      role: 'SWE / Fullstack',
+      description: 'Сайт IT-компании, в которой я работаю.',
+      stack: ['Gatsby.js', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    }
+  ],
+  en: [
+    {
+      name: 'finik.kg',
+      url: 'https://finik.kg',
+      role: 'SWE / Fullstack',
+      description: 'Payment platform for businesses in Kyrgyzstan.',
+      stack: ['React', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'slonexpress',
+      url: 'https://slonexpress.com',
+      role: 'SWE / Fullstack',
+      description: 'Delivery service. User-facing web app and order management dashboard.',
+      stack: ['React', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'mancho.school',
+      url: 'https://www.mancho.dev/school/',
+      role: 'SWE / Fullstack',
+      description: 'Educational platform by ManchoDevs. SWE courses.',
+      stack: ['Gatsby.js', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'ManchoDevs',
+      url: 'https://mancho.dev',
+      role: 'SWE / Fullstack',
+      description: 'Website for the software company I work at.',
+      stack: ['Gatsby.js', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    }
+  ],
+  ky: [
+    {
+      name: 'finik.kg',
+      url: 'https://finik.kg',
+      role: 'SWE / Fullstack',
+      description: 'Кыргызстандагы бизнес үчүн төлөм платформасы.',
+      stack: ['React', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'slonexpress',
+      url: 'https://slonexpress.com',
+      role: 'SWE / Fullstack',
+      description: 'Жеткирүү тейлөөсү. Колдонуучулар үчүн веб-интерфейс жана заказдарды башкаруу панели.',
+      stack: ['React', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'mancho.school',
+      url: 'https://www.mancho.dev/school/',
+      role: 'SWE / Fullstack',
+      description: 'ManchoDevs тарабынан билим берүү платформасы. SWE боюнча курстар.',
+      stack: ['Gatsby.js', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    },
+    {
+      name: 'ManchoDevs',
+      url: 'https://mancho.dev',
+      role: 'SWE / Fullstack',
+      description: 'Мен иштеген IT-компаниянын расмий сайты.',
+      stack: ['Gatsby.js', 'TypeScript', 'Apollo', 'Redux', 'AWS web services']
+    }
+  ]
+}
+
+const list = projects[lang]
+---
+
+<BaseLayout title={`${t('projects.title')} — Abdillamit`} description={t('projects.title')} lang={lang} pageKey="projects">
+  <h1>{t('projects.title')}</h1>
+  <ul class="project-list">
+    {list.map((project) => (
+      <li>
+        <h3><a href={project.url}>{project.name}</a></h3>
+        <div class="meta">{project.role} · {project.stack.join(', ')}</div>
+        <p>{project.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

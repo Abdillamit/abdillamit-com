@@ -1,0 +1,243 @@
+/*
+  Minimal text-first stylesheet.
+  Inspired by Dan Luu, Paul Graham, Stallman — readability over decoration.
+*/
+
+:root {
+  --color-bg: #fdfdfd;
+  --color-text: #1a1a1a;
+  --color-muted: #666;
+  --color-link: #0645ad;
+  --color-link-visited: #0645ad;
+  --color-border: #e5e5e5;
+  --font-serif: Charter, 'Iowan Old Style', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  --font-mono: 'SF Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --max-width: 38rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1a1a;
+    --color-text: #e8e8e8;
+    --color-muted: #888;
+    --color-link: #6ea8fe;
+    --color-link-visited: #b59ddc;
+    --color-border: #333;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+body {
+  margin: 0;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+header {
+  max-width: var(--max-width);
+  margin: 0 auto 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+footer {
+  max-width: var(--max-width);
+  margin: 4rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+nav a:hover,
+nav a[aria-current='page'] {
+  border-bottom-color: var(--color-text);
+}
+
+.site-name {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.site-name a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.lang-switcher {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.lang-switcher a {
+  color: var(--color-muted);
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+
+.lang-switcher a:hover,
+.lang-switcher a[aria-current='true'] {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:visited {
+  color: var(--color-link-visited);
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 2rem 0 1rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 0 0 1.1rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-border);
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background: var(--color-border);
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 3px;
+  margin: 1.25rem 0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 3px solid var(--color-border);
+  margin: 1.25rem 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  color: var(--color-muted);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5rem 0;
+}
+
+article header {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0;
+}
+
+article time {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 0.85rem;
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.post-list time {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 6rem;
+  flex-shrink: 0;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  margin-bottom: 1.5rem;
+}
+
+.project-list h3 {
+  margin: 0 0 0.25rem;
+}
+
+.project-list .meta {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.35rem;
+}

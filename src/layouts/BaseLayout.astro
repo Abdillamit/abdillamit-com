@@ -1,0 +1,143 @@
+---
+import '@/styles/global.css'
+import { type Lang, languages } from '@/i18n/ui'
+import { useTranslations, localizePath } from '@/i18n/utils'
+
+interface Props {
+  title: string
+  description?: string
+  lang: Lang
+  pageKey?: 'home' | 'about' | 'projects' | 'blog'
+}
+
+const { title, description = '', lang, pageKey } = Astro.props
+const t = useTranslations(lang)
+
+const pathWithoutLang = Astro.url.pathname.replace(/^\/(ru|en|ky)/, '') || '/'
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://abdillamit.com').href
+
+const ogLocale = { ru: 'ru_RU', en: 'en_US', ky: 'ky_KG' }[lang]
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Abdyllamit Mamytov" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={ogLocale} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <meta name="geo.region" content="KG-B" />
+    <meta name="geo.placename" content="Bishkek, Kyrgyzstan" />
+    <meta name="geo.position" content="42.8746;74.5698" />
+    <meta name="ICBM" content="42.8746, 74.5698" />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://abdillamit.com/#person",
+          "name": "Abdyllamit Mamytov",
+          "url": "https://abdillamit.com",
+          "jobTitle": "Software Engineer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "ManchoDevs",
+            "url": "https://mancho.dev"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bishkek",
+            "addressCountry": "KG"
+          },
+          "sameAs": [
+            "https://github.com/Abdillamit",
+            "https://www.linkedin.com/in/abdillamit-mamytov/",
+            "https://t.me/Abd1llamit"
+          ],
+          "knowsAbout": ["TypeScript", "React", "Gatsby.js", "Apollo GraphQL", "Redux", "AWS", "Software Engineering"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://abdillamit.com/#website",
+          "url": "https://abdillamit.com",
+          "name": "Abdillamit",
+          "description": "Personal site of Abdyllamit Mamytov — Software Engineer from Bishkek, Kyrgyzstan",
+          "author": { "@id": "https://abdillamit.com/#person" },
+          "inLanguage": ["ru", "en", "ky"]
+        }
+      ]
+    })} />
+
+    <link rel="alternate" hreflang="ru" href={`https://abdillamit.com/ru${pathWithoutLang === '/' ? '' : pathWithoutLang}`} />
+    <link rel="alternate" hreflang="en" href={`https://abdillamit.com/en${pathWithoutLang === '/' ? '' : pathWithoutLang}`} />
+    <link rel="alternate" hreflang="ky" href={`https://abdillamit.com/ky${pathWithoutLang === '/' ? '' : pathWithoutLang}`} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <div class="site-name">
+        <a href={localizePath('', lang)}>Abdillamit</a>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href={localizePath('', lang)} aria-current={pageKey === 'home' ? 'page' : undefined}>
+              {t('nav.home')}
+            </a>
+          </li>
+          <li>
+            <a href={localizePath('about', lang)} aria-current={pageKey === 'about' ? 'page' : undefined}>
+              {t('nav.about')}
+            </a>
+          </li>
+          <li>
+            <a href={localizePath('projects', lang)} aria-current={pageKey === 'projects' ? 'page' : undefined}>
+              {t('nav.projects')}
+            </a>
+          </li>
+          <li>
+            <a href={localizePath('blog', lang)} aria-current={pageKey === 'blog' ? 'page' : undefined}>
+              {t('nav.blog')}
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="lang-switcher">
+        {Object.entries(languages).map(([code, label], i) => (
+          <>
+            {i > 0 && <span>·</span>}
+            <a
+              href={`/${code}${pathWithoutLang === '/' ? '' : pathWithoutLang}`}
+              aria-current={lang === code ? 'true' : undefined}
+            >{label}</a>
+          </>
+        ))}
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>{t('footer.text')}</p>
+    </footer>
+  </body>
+</html>

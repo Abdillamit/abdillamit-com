@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i s/фронтенд-разработчик/инженер-программист/g '/home/abdillamit/Downloads/abdillamit-com/src/pages/[lang]/about.astro' /home/abdillamit/Downloads/abdillamit-com/src/i18n/ui.ts /home/abdillamit/Downloads/abdillamit-com/src/content/blog/ru/mountain-village-to-it.md)",
+      "Bash(sed -i 's/frontend developer/software engineer/g' '/home/abdillamit/Downloads/abdillamit-com/src/pages/[lang]/about.astro' /home/abdillamit/Downloads/abdillamit-com/src/i18n/ui.ts /home/abdillamit/Downloads/abdillamit-com/src/content/blog/en/mountain-village-to-it.md)",
+      "Bash(sed -i 's/фронтенд иштеп чыгаруучумун/программалык инженермин/g; s/фронтенд иштеп чыгаруучу\\\\b/программалык инженер/g' '/home/abdillamit/Downloads/abdillamit-com/src/pages/[lang]/about.astro' /home/abdillamit/Downloads/abdillamit-com/src/i18n/ui.ts /home/abdillamit/Downloads/abdillamit-com/src/content/blog/ky/mountain-village-to-it.md)",
+      "Bash(sed -i 's/frontend development/software engineering/g' /home/abdillamit/Downloads/abdillamit-com/src/content/blog/en/mountain-village-to-it.md /home/abdillamit/Downloads/abdillamit-com/src/content/blog/en/hello-world.md)",
+      "Bash(sed -i 's/'\\\\''Frontend \\\\/ Fullstack'\\\\''/'\\\\''SWE \\\\/ Fullstack'\\\\''/g; s/'\\\\''Frontend'\\\\''/'\\\\''SWE'\\\\''/g' '/home/abdillamit/Downloads/abdillamit-com/src/pages/[lang]/projects.astro')"
+    ]
+  }
+}

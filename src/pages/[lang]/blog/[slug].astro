@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { type Lang, languages } from '@/i18n/ui'
+import { useTranslations, localizePath } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft)
+  return allPosts.map((post) => {
+    const slug = post.id.split('/').pop()
+    return {
+      params: { lang: post.data.lang, slug },
+      props: { post }
+    }
+  })
+}
+
+const { lang } = Astro.params as { lang: Lang }
+const { post } = Astro.props
+const { Content } = await render(post)
+const t = useTranslations(lang)
+
+const dateLocale = lang === 'en' ? 'en-US' : lang === 'ky' ? 'ky-KG' : 'ru-RU'
+---
+
+<BaseLayout
+  title={`${post.data.title} — Abdillamit`}
+  description={post.data.description}
+  lang={lang}
+  pageKey="blog"
+>
+  <article>
+    <header>
+      <h1>{post.data.title}</h1>
+      <time datetime={post.data.pubDate.toISOString()}>
+        {post.data.pubDate.toLocaleDateString(dateLocale, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}
+      </time>
+    </header>
+    <Content />
+  </article>
+  <p style="margin-top: 3rem;">
+    <a href={localizePath('blog', lang)}>{t('post.back')}</a>
+  </p>
+</BaseLayout>

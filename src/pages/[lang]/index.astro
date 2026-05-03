@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { type Lang, languages } from '@/i18n/ui'
+import { useTranslations, localizePath } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }))
+}
+
+const { lang } = Astro.params as { lang: Lang }
+const t = useTranslations(lang)
+
+const allPosts = await getCollection('blog', ({ data }) => data.lang === lang && !data.draft)
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5)
+
+const dateLocale = lang === 'en' ? 'en-US' : lang === 'ky' ? 'ky-KG' : 'ru-RU'
+---
+
+<BaseLayout title="Abdillamit" description={t('home.intro')} lang={lang} pageKey="home">
+  <p>{t('home.intro')}</p>
+  <p>{t('home.subintro')}</p>
+
+  {recentPosts.length > 0 && (
+    <>
+      <h2>{t('home.recent')}</h2>
+      <ul class="post-list">
+        {recentPosts.map((post) => {
+          const slug = post.id.split('/').pop()
+          return (
+            <li>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString(dateLocale, {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric'
+                })}
+              </time>
+              <a href={localizePath(`blog/${slug}`, lang)}>{post.data.title}</a>
+            </li>
+          )
+        })}
+      </ul>
+      <p><a href={localizePath('blog', lang)}>{t('home.allPosts')}</a></p>
+    </>
+  )}
+</BaseLayout>
