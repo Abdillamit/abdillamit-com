@@ -1,16 +1,17 @@
 {
   "Metadata": {
     "title": "Abdillamit Mamytov — Full-Stack инженер",
-    "description": "Бишкектен Full-Stack инженер: React, TypeScript, Node.js жана AWS. Долбоорлор, тажрыйба жана байланыш."
+    "description": "Бишкектен Full-Stack инженер: React, TypeScript, Node.js жана AWS. Долбоорлор, резюме, блог жана байланыш."
   },
   "Nav": {
     "label": "Сайттын бөлүмдөрү",
     "home": "Башкы бет",
     "projects": "Долбоорлор",
     "about": "Мен жөнүндө",
+    "blog": "Блог",
     "contact": "Байланыш",
     "menu": "Меню",
-    "close": "Жабуу",
+    "close": "Менюну жабуу",
     "skip": "Мазмунга өтүү"
   },
   "Locale": {
@@ -24,72 +25,262 @@
     "pages": "Барактар",
     "elsewhere": "Башка жерлерде",
     "colophon": "Колофон",
-    "colophonText": "Next.js, Payload CMS жана React Three Fiber. Булак коду <link>GitHub</link>'да ачык.",
-    "rights": "© {year} Abdillamit Mamytov, Бишкек"
+    "colophonText": "Onest жана JetBrains Mono шрифттери, 3D React Three Fiber менен, мазмун Payload CMS'те. Сайтты <claude>Claude Code</claude> менен бирге жаздым, булак коду <link>GitHub</link>'да ачык.",
+    "terminal": "Кызыккандар үчүн терминал бар: ~ басыңыз же <button>аны ачыңыз</button>.",
+    "rights": "© {year} Abdillamit Mamytov, Бишкек",
+    "stackLine": "Next.js · Payload CMS · React Three Fiber"
   },
   "Home": {
     "eyebrow": "Бишкек · UTC+6",
     "role": "Full-Stack инженер",
     "lede": "React жана TypeScript менен веб-тиркемелерди, Node.js жана AWS serverless менен бэкендди жасайм, Mancho School'до студенттерге frontend үйрөтөм.",
     "projectsCta": "Долбоорлорду көрүү",
-    "contactCta": "Мага жазуу"
+    "contactCta": "Мага жазуу",
+    "scroll": "Ылдый жылдырыңыз",
+    "stackLabel": "Стек",
+    "statsLabel": "Сандар",
+    "stats": [
+      { "value": 5, "suffix": "", "label": "Mancho Devs'теги продукт" },
+      { "value": 20, "suffix": "+", "label": "Mancho School'догу студент" },
+      { "value": 3, "suffix": "", "label": "жума umrahhajj MVP'сине" },
+      { "value": 2, "suffix": "+", "label": "жыл коммерциялык иште" }
+    ],
+    "projectsEyebrow": "Долбоорлор",
+    "projectsTitle": "Мен иштеген продукттар",
+    "allProjects": "Бардык долбоорлор",
+    "aboutEyebrow": "Мен жөнүндө",
+    "aboutTitle": "Тоо айылынан продакшенге",
+    "aboutText": "Мен Лейлек районундагы Баул айылынанмын, Кыргызстандын эң түштүгү. Udemy жана YouTube аркылуу өз алдымча окуп, мал багуунун арасында LeetCode чечтим. Азыр Mancho Devs'те админ-панелдерди, API жана төлөм интерфейстерин жазам, Mancho School'до frontend үйрөтөм.",
+    "aboutMore": "Мен жөнүндө кененирээк",
+    "jobsLabel": "Иштеген жерлерим",
+    "jobs": [
+      { "period": "2024-жылдан", "org": "Mancho Devs", "role": "Full-Stack Software Engineer" },
+      { "period": "2024-жылдан", "org": "Mancho School", "role": "Frontend-ментор, 20дан ашык студент" },
+      { "period": "2023", "org": "MEGA (Alfa Telecom)", "role": "Frontend-стажёр" },
+      { "period": "2022", "org": "Oigonuu NGO", "role": "Frontend-ментор, волонтёр" }
+    ],
+    "blogEyebrow": "Блог",
+    "blogTitle": "Блогдон",
+    "readPost": "Окуяны окуу",
+    "ctaEyebrow": "Байланыш",
+    "ctaTitle": "Келиңиз, пайдалуу нерсе жасайлы",
+    "ctaText": "Frontend, full-stack иштеп чыгуу же менторлук боюнча жазыңыз."
+  },
+  "Card": {
+    "open": "Ачуу",
+    "cover": "{name} долбоорунун мукабасы"
   },
   "Projects": {
     "title": "Долбоорлор",
-    "intro": "Mancho Devs'те иштеген продукттарым: финтех, логистика, ажылык жана билим берүү."
+    "intro": "Mancho Devs'те иштеген продукттарым: финтех, логистика, зыярат жана билим берүү. Бул барактагы бардык маалымат Payload CMS'тен келет.",
+    "view": "Көрүнүш",
+    "cards": "Карточкалар",
+    "list": "Тизме",
+    "empty": "Долбоорлор админ-панелде жарыялангандан кийин ушул жерде чыгат."
+  },
+  "Project": {
+    "back": "Бардык долбоорлор",
+    "facts": "Кыскача",
+    "role": "Ролум",
+    "period": "Мезгил",
+    "stack": "Стек",
+    "links": "Шилтемелер",
+    "cover": "Мукаба",
+    "what": "Бул эмне",
+    "did": "Эмне кылдым",
+    "how": "Кантип түзүлгөн",
+    "more": "Кененирээк",
+    "gallery": "Скриншоттор",
+    "next": "Кийинки долбоор"
   },
   "About": {
     "title": "Мен жөнүндө",
-    "lede": "Бишкектен Full-Stack инженер. 2022-жылдан бери код жазам.",
+    "lede": "Бишкектен Full-Stack инженер. 2022-жылдан бери код жазам, 2024-жылдан бери коммерциялык долбоорлордо.",
+    "storyTitle": "Окуя",
     "story": [
       "Мен Баткен облусунун Лейлек районундагы Баул айылынанмын — Кыргызстандын түштүк четинде. 9-класста агам Данияр мени ManchoDevs менен тааныштырды: Бишкектеги кеңсеге барып, команданын иштегенин көрдүм жана эмне кылгым келерин түшүндүм.",
-      "Айылга кайтып, өз алдымча үйрөнө баштадым: Udemy, YouTube, HTML, CSS, JavaScript, React. Мини-долбоорлорду жасап, LeetCode'до маселелерди чечтим — көбүнчө мал багуунун ортосунда. Адаттан тыш жол, бирок мени керектүү жерге алып келди."
+      "Айылга кайтып, өз алдымча үйрөнө баштадым: Udemy, YouTube, HTML, CSS, JavaScript, React. Мини-долбоорлорду жасап, LeetCode'до маселелерди чечтим — көбүнчө мал багуунун ортосунда. Адаттан тыш жол, бирок мени керектүү жерге алып келди.",
+      "Азыр Mancho Devs'тин беш продукту үчүн веб-тиркемелерди жана админ-панелдерди жасайм, ошондой эле өзүм Software Engineering боюнча окуган Mancho School'до frontend үйрөтөм."
     ],
-    "experienceTitle": "Тажрыйба",
+    "journeyEyebrow": "Жол",
+    "journeyTitle": "Жайыт менен LeetCode'дун ортосунда өз алдымча окудум",
+    "journey": [
+      { "mark": "Баул", "title": "Башталышы", "text": "Баткен облусундагы айыл. YouTube жана Udemy аркылуу, жайыт менен LeetCode'дун ортосунда өз алдымча окудум." },
+      { "mark": "2021", "title": "OKUU IT", "text": "Биринчи курс: HTML, CSS жана JavaScript." },
+      { "mark": "2022", "title": "U.Skill.Z жана Oigonuu NGO", "text": "Vue, React жана Redux, UI Frontend Engineer сертификаты. Айылдык жаштарга веб-иштеп чыгуунун негиздерин волонтёр катары үйрөттүм." },
+      { "mark": "2023", "title": "MEGA жана Mancho School", "text": "React жана TypeScript боюнча frontend-стажировка. Mancho School'го Software Engineering боюнча окууга кирдим." },
+      { "mark": "2024", "title": "Mancho Devs", "text": "Full Stack Software Engineer. Ошол эле жылы Mancho School'до ментор болдум." },
+      { "mark": "Азыр", "title": "5 продукт жана 20дан ашык студент", "text": "Finik, umrahhajj жана SlonExpress'тин үстүндө иштейм. Mancho School'до лекция, воркшоп өткөрүп, code review жасайм." }
+    ],
+    "resumeEyebrow": "Резюме",
+    "resumeTitle": "Тажрыйба, билим жана көндүмдөр",
+    "resumeUpdated": "2026-жылдын 12-октябрында жаңыланды",
+    "resumeDownload": "PDF жүктөп алуу",
+    "resumePdf": "/cv/Abdillamit_Mamytov_CV_RU.pdf",
+    "profileTitle": "Профиль",
+    "profile": "Full Stack иштеп чыгуучу, fintech жана логистикада 2 жылдан ашык коммерциялык тажрыйба. Стек: React, TypeScript, GraphQL, Node.js, AWS serverless. Mancho School'до frontend багытындагы студенттерге менторлук кылам.",
+    "experienceTitle": "Иш тажрыйбасы",
     "experience": [
       {
         "org": "Mancho Devs",
-        "role": "Full-Stack Software Engineer",
-        "period": "2024-жылдын сентябрынан бери",
-        "text": "Компаниянын 5 продукту үчүн веб-тиркемелер жана админ-панелдер, алардын ичинде finik.pay, umrahhajj, SlonExpress жана mancho.school. Frontend — React жана Gatsby, backend — Node.js, GraphQL жана AWS. Тесттер Jest, React Testing Library жана Cypress менен, CI/CD — GitHub Actions'та."
+        "place": "Бишкек, кеңсе",
+        "role": "Full Stack Software Engineer",
+        "period": "2024-жыл, сентябрь — азыр",
+        "items": [
+          { "label": "Full-stack иштеп чыгуу", "text": "Компаниянын 5 продукту үчүн веб-тиркемелерди жана админ-панелдерди иштеп чыгам: frontend React жана Gatsby менен, backend Node.js, GraphQL жана AWS менен; API жана маалымат моделдерин долбоорлойм." },
+          { "label": "Тесттер жана релиздер", "text": "Unit-, компонент жана E2E-тесттерди жазам (Jest, React Testing Library, Cypress), GitHub Actions'тагы CI/CD'ни колдойм, production-инциденттерди AWS CloudWatch логдору боюнча иликтейм." },
+          { "label": "Онбординг", "text": "umrahhajj долбооруна жаңы frontend-иштеп чыгуучуну киргизип, анын PR'ларына code review жасадым." }
+        ]
       },
       {
         "org": "Mancho School",
-        "role": "Frontend-ментор",
-        "period": "2024-жылдын сентябрынан бери",
-        "text": "20дан ашык студентке frontend-иштеп чыгууну үйрөттүм: лекциялар, воркшоптор, code review, долбоорлор боюнча жардам."
+        "place": "Бишкек",
+        "role": "Frontend Mentor",
+        "period": "2024-жыл, сентябрь — азыр",
+        "items": [
+          { "label": "Менторлук", "text": "20дан ашык студентке frontend-иштеп чыгууну үйрөттүм: лекциялар, воркшоптор, code review, долбоорлор боюнча жардам." }
+        ]
       },
       {
-        "org": "MEGA (Alfa Telecom)",
-        "role": "Frontend-стажёр",
+        "org": "MEGA («Альфа Телеком» ЖАК)",
+        "place": "алыстан",
+        "role": "Frontend Developer Intern",
         "period": "2023-жыл, март — май",
-        "text": "Ири телеком-компаниянын продуктусунун функцияларын React жана TypeScript менен жасадым."
+        "items": [
+          { "label": "Frontend", "text": "Ири телеком-компаниянын продуктусунун функцияларын React жана TypeScript менен иштеп чыктым." }
+        ]
       },
       {
         "org": "Oigonuu NGO",
-        "role": "Frontend-ментор, волонтёр",
+        "place": "Кыргызстан, алыстан",
+        "role": "Frontend Mentor, волонтёр",
         "period": "2022-жыл, март — август",
-        "text": "Колдоого муктаж айылдык жаштарга HTML, CSS жана JavaScript үйрөттүм."
+        "items": [
+          { "label": "Волонтёрлук", "text": "Колдоого муктаж айылдык жаштарга HTML, CSS жана JavaScript үйрөттүм." }
+        ]
       }
     ],
-    "stackTitle": "Стек",
-    "stackGroups": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "aws": "AWS serverless",
-      "tools": "Тесттер жана куралдар"
-    },
+    "otherTitle": "Башка долбоорлор",
+    "other": [
+      { "label": "Bitok.kg", "text": "Крипто алмашуучунун баланстардагы, комиссиялардагы жана курсту эсептөөдөгү каталарын оңдодум." },
+      { "label": "Mancho сайты", "text": "Үч тилдеги (RU, KY, EN) сайтты колдодум: UI, адаптивдүү калып жана анимациялар." }
+    ],
+    "educationTitle": "Билим жана курстар",
+    "education": [
+      { "org": "Mancho School", "program": "Software Engineering", "period": "2023-жыл, сентябрь — 2024-жыл, июнь", "stack": "React, Gatsby, Redux, RxJS; Flutter, Bloc; Node.js, AWS (Lambda, DynamoDB, Cognito)" },
+      { "org": "U.Skill.Z", "program": "Frontend Web Developer, UI Frontend Engineer сертификаты", "period": "2022-жыл, июль — декабрь", "stack": "JavaScript, TypeScript, Vue.js 2/3, Vuex, React, Redux, REST API" },
+      { "org": "OKUU IT", "program": "Frontend Web Developer", "period": "2021-жыл, ноябрь — 2022-жыл, февраль", "stack": "JavaScript, HTML, CSS" }
+    ],
+    "skillsTitle": "Көндүмдөр",
+    "skills": [
+      { "label": "Программалоо тилдери", "text": "TypeScript, JavaScript, Dart." },
+      { "label": "Frontend", "text": "React, Gatsby, Apollo Client, Redux, RxJS, Styletron, HTML, CSS/SCSS, адаптивдүү калып." },
+      { "label": "Backend", "text": "Node.js, GraphQL, API жана маалымат моделдерин долбоорлоо, role-based access control (RBAC)." },
+      { "label": "AWS", "text": "AppSync, Cognito, IAM, Lambda, API Gateway, DynamoDB, S3, CloudFront, CloudWatch, OpenSearch, EC2, EventBridge, CloudFormation, CodeCommit, CodeBuild, CodePipeline, Route 53." },
+      { "label": "Тесттер жана куралдар", "text": "Jest, React Testing Library, Cypress, Git, GitHub Actions." }
+    ],
+    "languagesTitle": "Тилдер",
+    "languages": "Кыргызча жана орусча: эркин. Англисче: A2.",
+    "stackEyebrow": "Стек",
+    "stackTitle": "Алдыда React, артында AWS",
+    "stackFiles": "Файлдар",
+    "stackNotes": [
+      { "label": "Тесттер", "text": "Jest, React Testing Library жана Cypress менен unit-, компонент жана E2E-тесттер." },
+      { "label": "Релиздер", "text": "GitHub Actions жана CodePipeline'дагы CI/CD." },
+      { "label": "Production", "text": "Инциденттерди AWS CloudWatch логдору боюнча иликтейм." }
+    ],
     "mentoringTitle": "Менторлук",
     "mentoring": "2024-жылдан бери Mancho School'до frontend боюнча лекция жана воркшоп өткөрөм — өзүм Software Engineering боюнча окуган мектепте. Code review жасайм, студенттерге долбоорлору менен жардам берем. Буга чейин Oigonuu NGO'до айылдык жаштарга веб негиздерин волонтёр катары үйрөткөм."
   },
+  "Blog": {
+    "title": "Блог",
+    "intro": "IT'га кантип келгеним жана эмнени үйрөнүп жатканым тууралуу окуялар жана жазмалар.",
+    "read": "Окуу",
+    "minRead": "{count} мүн. окуу",
+    "back": "Бардык жазмалар",
+    "empty": "Азырынча жазмалар жок.",
+    "nextTitle": "Андан ары",
+    "next": "Жаңы макалалар ушул жерде чыгат. Биринчилерден болуп көрүү үчүн мени <link>LinkedIn</link>'де ээрчиңиз.",
+    "aboutAuthor": "Автор жөнүндө"
+  },
   "Contact": {
     "title": "Байланыш",
-    "intro": "Frontend, full-stack иштеп чыгуу же менторлук боюнча жазыңыз.",
-    "direct": "Түз байланыш"
+    "intro": "Frontend, full-stack иштеп чыгуу же менторлук боюнча жазыңыз. Форма аркылуу же түз эле.",
+    "direct": "Түз байланыш",
+    "rows": {
+      "email": "Почта",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "form": {
+      "label": "Билдирүү формасы",
+      "name": "Атыңыз",
+      "email": "Почта",
+      "message": "Билдирүү",
+      "honeypot": "Бул талааны толтурбаңыз",
+      "nameError": "Сизге кантип кайрылайын?",
+      "emailError": "Почтанын дарегин текшериңиз",
+      "messageError": "Жок дегенде эки-үч сүйлөм жазыңыз",
+      "limited": "Катары менен өтө көп билдирүү. 10 мүнөттөн кийин кайра аракет кылыңыз.",
+      "failed": "Жөнөтүлгөн жок. Кайра аракет кылыңыз же почтага жазыңыз.",
+      "note": "Билдирүү сайттын админ-панелине түшөт",
+      "send": "Жөнөтүү",
+      "sending": "Жөнөтүп жатам…",
+      "sent": "Билдирүү жөнөтүлдү",
+      "thanks": "Рахмат, {name}! Окуп чыгып, почтага жооп берем.",
+      "again": "Дагы жазуу"
+    }
   },
   "NotFound": {
     "title": "Мындай барак жок",
     "text": "Шилтеме эскирген же даректе ката болушу мүмкүн.",
     "home": "Башкы бетке"
+  },
+  "Terminal": {
+    "title": "Терминал",
+    "close": "Терминалды жабуу",
+    "input": "Буйрук",
+    "banner": "Буйруктарды көрүү үчүн help деп териңиз.",
+    "helpTitle": "Буйруктар:",
+    "help": {
+      "whoami": "мен киммин",
+      "ls": "бул жерде эмне бар",
+      "cat": "файлды окуу: about.txt, contacts.txt",
+      "cd": "баракты ачуу: projects, about, blog, contact",
+      "projects": "эмне менен алектенем",
+      "contact": "мени менен кантип байланышуу",
+      "cv": "резюмени жүктөп алуу (PDF)",
+      "lang": "тилди алмаштыруу",
+      "clear": "экранды тазалоо",
+      "exit": "терминалды жабуу (же Esc)",
+      "hint": "Tab буйрукту толуктайт, ↑ жана ↓ тарыхты барактайт."
+    },
+    "whoami": "Abdillamit Mamytov — Full Stack Software Engineer, Бишкек.",
+    "work": [
+      { "name": "Finik", "text": "төлөм платформасынын админ-панели, документация жана мерчанттар үчүн Web SDK." },
+      { "name": "SlonExpress", "text": "React, Node.js жана AWS Lambda'дагы логистика платформасы." },
+      { "name": "umrahhajj", "text": "React, Apollo жана RxJS менен болжол менен 3 жумада MVP." },
+      { "name": "Mancho School", "text": "студенттер үчүн лекциялар, воркшоптор жана code review." }
+    ],
+    "catUsage": "колдонуу: cat <файл>",
+    "catMissing": "cat: {file}: мындай файл жок",
+    "resumeBinary": "resume.pdf — бинардык файл. Жүктөп алуу үчүн cv деп териңиз.",
+    "hireComment": "# root укугу керек: sudo ./hire-me.sh",
+    "cdNotDir": "cd: {name}: бул папка эмес",
+    "cdMissing": "cd: {name}: мындай папка жок",
+    "downloading": "Жүктөп жатам: ",
+    "langCurrent": "Тил: кыргызча. Колдонуу: lang ru|en|ky",
+    "langSame": "Азыр эле кыргызча.",
+    "city": "Бишкек",
+    "sudoPassword": "[sudo] guest үчүн сырсөз: ********",
+    "sudoGranted": "Уруксат берилди. Абдилламитке кат ачып жатам…",
+    "sudoDenied": "guest sudoers файлында жок. Бул окуя тууралуу кабарланат.",
+    "mailSubject": "Чогуу иштешели",
+    "denied": "{name}: уруксат жок. sudo менен аракет кылыңыз.",
+    "rm": "rm: жакшы аракет. Бул жерде өчүрө турган эч нерсе жок.",
+    "git": "Булак коду бул жерде: ",
+    "sheep": "Бээ! Баулдун жайыттарынан салам.",
+    "unknown": "{name}: буйрук табылган жок. help деп териңиз."
   }
 }

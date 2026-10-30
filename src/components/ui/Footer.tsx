@@ -1,12 +1,16 @@
 import { getTranslations } from "next-intl/server"
 
+import { TerminalButton } from "@/components/terminal/TerminalButton"
 import { Link } from "@/i18n/navigation"
-import { contacts, owner, sourceUrl } from "@/lib/site"
+import { claudeCodeUrl, contacts, owner, sourceUrl } from "@/lib/site"
 
 import { Peaks } from "./Peaks"
 
 const linkClass =
   "inline-flex min-h-9 items-center text-[0.95rem] text-soft no-underline transition-colors hover:text-ink"
+
+const inlineLink =
+  "text-ink underline decoration-line-4 underline-offset-4 hover:decoration-current"
 
 export async function Footer() {
   const t = await getTranslations("Footer")
@@ -17,6 +21,7 @@ export async function Footer() {
     { href: "/", label: nav("home") },
     { href: "/projects", label: nav("projects") },
     { href: "/about", label: nav("about") },
+    { href: "/blog", label: nav("blog") },
     { href: "/contact", label: nav("contact") },
   ]
 
@@ -45,33 +50,41 @@ export async function Footer() {
 
           <div className="flex flex-col items-start">
             <h2 className="eyebrow mb-1.5 text-[0.6875rem]">{t("elsewhere")}</h2>
-            {contacts.map(contact => (
-              <a key={contact.id} href={contact.href} className={linkClass}>
-                {contact.label}
+            {contacts.map(item => (
+              <a key={item.id} href={item.href} className={linkClass}>
+                {item.label}
               </a>
             ))}
           </div>
 
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start gap-3">
             <h2 className="eyebrow mb-1.5 text-[0.6875rem]">{t("colophon")}</h2>
             <p className="text-sm text-soft">
               {t.rich("colophonText", {
+                claude: chunks => (
+                  <a href={claudeCodeUrl} className={inlineLink}>
+                    {chunks}
+                  </a>
+                ),
                 link: chunks => (
-                  <a
-                    href={sourceUrl}
-                    className="underline decoration-line-4 underline-offset-4 hover:text-ink hover:decoration-current"
-                  >
+                  <a href={sourceUrl} className={inlineLink}>
                     {chunks}
                   </a>
                 ),
               })}
             </p>
+            <p className="hidden text-sm text-soft md:block">
+              {t.rich("terminal", {
+                button: chunks => <TerminalButton>{chunks}</TerminalButton>,
+              })}
+            </p>
           </div>
         </div>
 
-        <p className="border-t border-line pt-6 font-mono text-xs text-muted">
-          {t("rights", { year })}
-        </p>
+        <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-line pt-6 font-mono text-xs text-muted">
+          <span>{t("rights", { year })}</span>
+          <span>{t("stackLine")}</span>
+        </div>
       </div>
     </footer>
   )

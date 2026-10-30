@@ -95,15 +95,36 @@ src/
 ├─ payload.config.ts          Payload config
 ├─ payload-types.ts           generated types
 ├─ migrations/                database migrations
-├─ components/three/          3D scene (stage 3)
-├─ components/motion/         animations (stage 3)
-├─ components/ui/             header, footer, buttons
+├─ components/three/          the "Galaxy" on the first screen (React Three Fiber)
+├─ components/motion/         Lenis, GSAP reveals and counters, page transitions,
+│                             tilt cards, magnetic buttons, the Lottie tick
+├─ components/terminal/       the terminal from the old site (~ or Ctrl+K)
+├─ components/ui/             header, footer, cards, contact form
 ├─ i18n/                      locales and navigation
 ├─ lib/                       site facts and helpers
 └─ proxy.ts                   adds the locale to page URLs
 messages/                     interface texts: ru, en, ky
 content/blog/                 posts from the old Astro site, source for `npm run seed`
+public/hero/                  still frames of the galaxy, shown until the 3D loads
+public/cv/                    resume PDFs (RU, EN)
 ```
 
 Texts live in `messages/*.json`; Russian is the source, the other two
-files must have the same keys.
+files must have the same keys. Project texts live in Payload; the
+starting ones are in `src/payload/seed-data.ts`.
+
+## Pages
+
+| Page            | Content                                                                    |
+| --------------- | -------------------------------------------------------------------------- |
+| `/`             | 3D galaxy, stack line, numbers, projects from the CMS, short bio, newest post |
+| `/projects`     | projects as cards or a list (the cover follows the cursor)                 |
+| `/projects/:slug` | facts, cover, what it is, what I did, how it is built, screenshots       |
+| `/about`        | story, journey, resume with a PDF, stack, mentoring                        |
+| `/blog`, `/blog/:slug` | posts from the CMS                                                  |
+| `/contact`      | contacts and a form that saves to Messages (3 messages per 10 minutes)     |
+
+Motion follows "reduce motion": no 3D (a still frame instead), no smooth
+scroll, no page transitions; everything is visible without JavaScript.
+Phones get a lighter scene (fewer points, lower resolution); weak phones
+and data saver get the still frame.

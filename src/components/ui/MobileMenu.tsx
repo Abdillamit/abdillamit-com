@@ -4,15 +4,18 @@ import { useEffect, useId, useRef, useState } from "react"
 
 import { Link, usePathname } from "@/i18n/navigation"
 
+import { LocaleSwitcher } from "./LocaleSwitcher"
 import { isCurrent, type NavItem } from "./NavLinks"
 
 type Props = {
   items: NavItem[]
-  labels: { menu: string; close: string; nav: string }
+  contacts: { href: string; label: string }[]
+  labels: { menu: string; close: string; nav: string; contacts: string }
 }
 
-// Menu for small screens: a button and a panel under the header
-export function MobileMenu({ items, labels }: Props) {
+// Menu for phones: big section links that rise line by line, the
+// language and a few contacts at the bottom.
+export function MobileMenu({ items, contacts, labels }: Props) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
   const [openedOn, setOpenedOn] = useState(pathname)
@@ -48,17 +51,17 @@ export function MobileMenu({ items, labels }: Props) {
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}
         onClick={() => setOpen(value => !value)}
-        className="relative -mr-2 flex size-11 items-center justify-center"
+        className="relative flex size-12 items-center justify-center"
       >
-        <span className="relative block h-2.5 w-5" aria-hidden="true">
+        <span className="relative block h-5 w-5" aria-hidden="true">
           <span
-            className={`absolute left-0 top-0 h-px w-full bg-current transition-transform duration-300 ${
-              open ? "translate-y-[4.5px] rotate-45" : ""
+            className={`absolute inset-x-0 h-[1.5px] bg-current transition-transform duration-300 ${
+              open ? "top-[9px] rotate-45" : "top-[6px]"
             }`}
           />
           <span
-            className={`absolute bottom-0 left-0 h-px w-full bg-current transition-transform duration-300 ${
-              open ? "-translate-y-[4.5px] -rotate-45" : ""
+            className={`absolute inset-x-0 h-[1.5px] bg-current transition-transform duration-300 ${
+              open ? "top-[9px] -rotate-45" : "top-[13px]"
             }`}
           />
         </span>
@@ -66,28 +69,49 @@ export function MobileMenu({ items, labels }: Props) {
       </button>
 
       {open && (
-        <nav
+        <div
           id={panelId}
-          aria-label={labels.nav}
-          className="fixed inset-x-0 top-[3.75rem] bottom-0 z-30 overflow-y-auto border-t border-line bg-bg px-5 pt-6 pb-10"
+          className="fixed inset-x-0 top-15 bottom-0 z-30 flex flex-col overflow-y-auto border-t border-line bg-bg"
         >
-          <ul>
-            {items.map((item, index) => (
-              <li key={item.href} className="border-b border-line">
-                <Link
+          <nav aria-label={labels.nav} className="flex-1 px-5 pt-6">
+            <ul>
+              {items.map((item, index) => (
+                <li key={item.href} className="overflow-hidden border-b border-line">
+                  <Link
+                    href={item.href}
+                    aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
+                    className="flex animate-line-up items-baseline gap-4 py-4.5 text-[2.5rem] leading-[1.05] font-medium tracking-[-0.035em] no-underline aria-[current=page]:text-accent"
+                    style={{ animationDelay: `${index * 0.07}s` }}
+                  >
+                    <span
+                      className="min-w-7 font-mono text-xs font-normal tracking-normal text-muted"
+                      aria-hidden="true"
+                    >
+                      0{index + 1}
+                    </span>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="flex animate-rise flex-col gap-6 border-t border-line px-5 pt-6 pb-8 [animation-delay:0.3s]">
+            <LocaleSwitcher variant="menu" />
+            <div className="flex flex-col">
+              <span className="eyebrow pb-1.5 text-[0.6875rem]">{labels.contacts}</span>
+              {contacts.map(item => (
+                <a
+                  key={item.href}
                   href={item.href}
-                  aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                  className="flex items-baseline gap-4 py-4 text-4xl font-medium tracking-tight no-underline aria-[current=page]:text-accent"
+                  className="flex min-h-11 items-center text-soft no-underline hover:text-ink"
                 >
-                  <span className="min-w-7 font-mono text-xs text-muted" aria-hidden="true">
-                    0{index + 1}
-                  </span>
                   {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
     </div>
   )

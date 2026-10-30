@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload"
 
 import { isStaff, publishedOrStaff } from "../access"
+import { revalidateAfterChange, revalidateAfterDelete } from "../hooks/revalidate"
 import { label, slugField } from "../fields"
 
 // Projects for /projects and /projects/[slug]. Text fields have a value
@@ -26,6 +27,10 @@ export const Projects: CollectionConfig = {
     create: isStaff,
     update: isStaff,
     delete: isStaff,
+  },
+  hooks: {
+    afterChange: [revalidateAfterChange],
+    afterDelete: [revalidateAfterDelete],
   },
   fields: [
     {
@@ -68,9 +73,94 @@ export const Projects: CollectionConfig = {
               },
             },
             {
+              name: "tagline",
+              type: "text",
+              label: label("Подзаголовок", "Tagline"),
+              localized: true,
+              admin: {
+                description: label(
+                  "Одна строка под названием на странице проекта.",
+                  "One line under the title on the project page."
+                ),
+              },
+            },
+            {
+              name: "intro",
+              type: "textarea",
+              label: label("Что это", "What it is"),
+              localized: true,
+            },
+            {
+              name: "highlights",
+              type: "array",
+              label: label("Что я сделал", "What I did"),
+              labels: {
+                singular: label("Пункт", "Item"),
+                plural: label("Пункты", "Items"),
+              },
+              fields: [
+                {
+                  name: "title",
+                  type: "text",
+                  label: label("Заголовок", "Title"),
+                  localized: true,
+                  required: true,
+                },
+                {
+                  name: "text",
+                  type: "textarea",
+                  label: label("Текст", "Text"),
+                  localized: true,
+                  required: true,
+                },
+              ],
+            },
+            {
+              name: "layers",
+              type: "array",
+              label: label("Как устроено", "How it is built"),
+              labels: {
+                singular: label("Слой", "Layer"),
+                plural: label("Слои", "Layers"),
+              },
+              admin: {
+                description: label(
+                  "Части продукта сверху вниз: интерфейс, API, данные…",
+                  "Parts of the product from top to bottom: UI, API, data…"
+                ),
+              },
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                    {
+                      name: "tag",
+                      type: "text",
+                      label: label("Метка", "Tag"),
+                      required: true,
+                      admin: { width: "20%" },
+                    },
+                    {
+                      name: "title",
+                      type: "text",
+                      label: label("Название", "Title"),
+                      localized: true,
+                      required: true,
+                    },
+                    {
+                      name: "sub",
+                      type: "text",
+                      label: label("Детали", "Details"),
+                      localized: true,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
               name: "description",
               type: "richText",
-              label: label("Подробно", "Description"),
+              label: label("Подробно (необязательно)", "Long story (optional)"),
               localized: true,
             },
             {
@@ -100,6 +190,18 @@ export const Projects: CollectionConfig = {
               type: "upload",
               relationTo: "media",
               label: label("Обложка", "Cover"),
+            },
+            {
+              name: "tone",
+              type: "select",
+              label: label("Цвет обложки без картинки", "Cover colour without an image"),
+              defaultValue: "amber",
+              options: [
+                { label: label("Янтарный", "Amber"), value: "amber" },
+                { label: label("Голубой", "Blue"), value: "blue" },
+                { label: label("Песочный", "Sand"), value: "sand" },
+                { label: label("Зелёный", "Green"), value: "green" },
+              ],
             },
             {
               name: "gallery",
@@ -192,6 +294,13 @@ export const Projects: CollectionConfig = {
       ],
     },
     slugField(),
+    {
+      name: "company",
+      type: "text",
+      label: label("Компания", "Company"),
+      defaultValue: "Mancho Devs",
+      admin: { position: "sidebar" },
+    },
     {
       name: "order",
       type: "number",
