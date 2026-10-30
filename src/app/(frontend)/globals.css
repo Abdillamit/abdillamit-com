@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/*
+ * "Amber terminal": a near-black page framed by thin lines, Onest with
+ * JetBrains Mono for labels and code, one apricot accent. Dark only.
+ */
+
+@theme {
+  --color-bg: #0b0b0a;
+  --color-bg-deep: #0f0f0e;
+  --color-raise: #121210;
+  --color-raise-2: #181816;
+  --color-pressed: #1e1d1a;
+  --color-line: #24231f;
+  --color-line-2: #33312c;
+  --color-line-3: #3a3833;
+  --color-line-4: #4a4740;
+  --color-ink: #eeebe4;
+  --color-soft: #a9a59b;
+  --color-muted: #8c887e;
+  --color-accent: #ffa552;
+  --color-accent-ink: #1b1206;
+  --color-error: #ff8a7a;
+  --color-keyword: #8cc8ff;
+
+  --container-frame: 75rem;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Fonts come from next/font as CSS variables on <html> */
+@theme inline {
+  --font-sans: var(--font-onest), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo,
+    monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    background: var(--color-bg);
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Content column with a thin line on each side */
+  .frame {
+    margin-inline: auto;
+    max-width: var(--container-frame);
+    border-inline: 1px solid var(--color-line);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-rise {
+  animation: rise 0.9s var(--ease-soft) both;
+}

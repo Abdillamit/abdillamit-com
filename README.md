@@ -1,92 +1,109 @@
-# abdillamit.com
+# abdillamit.dev
 
-Личный сайт. Astro + TypeScript. Три языка: ru / en / ky.
+Portfolio of Abdillamit Mamytov, Full-Stack engineer from Bishkek.
+Russian, English and Kyrgyz.
 
-## Запуск локально
+The site is itself a demo of the stack:
 
-Нужен Node.js 20+ и pnpm.
+- **Next.js 16** (App Router), **TypeScript** strict, **Tailwind CSS 4**
+- **next-intl** for `/ru`, `/en` and `/ky`
+- **Payload CMS 3** inside the same Next.js app: admin panel, Postgres on Neon, uploads to S3
+- **React Three Fiber** for the 3D scene, **GSAP ScrollTrigger**, **Framer Motion**, **Lenis**, **Lottie**
+- Deployed on **Vercel**
+
+The work goes in stages: skeleton and i18n → Payload and the database →
+home page with 3D → projects and page transitions → contact form → SEO
+and performance.
+
+## Run locally
+
+Node.js 22.23.4+ or 24.22.1+ (what Payload needs).
 
 ```bash
-pnpm install
-pnpm dev
+cp .env.example .env.local   # fill in the values
+npm install
+npm run migrate              # create the tables
+npm run seed                 # starting projects and the blog post
+npm run dev
 ```
 
-Сайт откроется на http://localhost:4321
+The site opens on http://localhost:3000 and redirects to your browser
+language (`/ru` by default). The admin panel is on
+http://localhost:3000/admin: the first account you create there becomes
+the admin.
 
-## Структура
+For a local database either use a separate Neon branch or Docker:
+
+```bash
+docker run -d --name abdillamit-db -p 5432:5432 \
+  -e POSTGRES_USER=payload -e POSTGRES_PASSWORD=payload -e POSTGRES_DB=abdillamit \
+  postgres:16
+# DATABASE_URI=postgresql://payload:payload@localhost:5432/abdillamit
+```
+
+Without `S3_BUCKET` uploads are saved to the local `media/` folder.
+
+## Content (Payload CMS)
+
+| Collection | What it holds                                                                  |
+| ---------- | ------------------------------------------------------------------------------ |
+| Projects   | title, summary, description, role per language; slug, cover, gallery, stack, links, order; draft or published |
+| Posts      | blog posts, one document for all three languages                               |
+| Media      | images with alt text per language; sizes 480, 1080, 1920 and 1200×630 for Open Graph |
+| Messages   | contact form messages; only admins can read them                               |
+| Users      | admin (everything) and editor (content only)                                   |
+
+Pages read content through the Local API in server components
+(`src/lib/payload.ts`); visitors only see published documents.
+
+When you change a collection:
+
+```bash
+npm run migrate:create       # writes a migration to src/migrations
+npm run generate:types       # updates src/payload-types.ts
+npm run generate:importmap   # after adding admin components or plugins
+```
+
+Commit the migration. On Vercel `vercel-build` runs `payload migrate`
+before `next build`, so the production database is updated on deploy.
+
+### Uploads to S3 or Cloudflare R2
+
+The browser uploads files straight to the bucket (Vercel limits a
+request to 4.5 MB), so the bucket needs a CORS rule:
+
+```json
+[
+  {
+    "AllowedOrigins": ["https://abdillamit.dev", "http://localhost:3000"],
+    "AllowedMethods": ["GET", "PUT"],
+    "AllowedHeaders": ["*"]
+  }
+]
+```
+
+With `S3_PUBLIC_URL` (a public bucket or a custom domain) images are
+served straight from it; without it they go through `/api/media`.
+
+## Structure
 
 ```
 src/
-├── content/blog/        # посты блога
-│   ├── ru/              # русские
-│   ├── en/              # английские
-│   └── ky/              # кыргызские
-├── i18n/
-│   ├── ui.ts            # все строки интерфейса (3 языка)
-│   └── utils.ts         # хелперы
-├── layouts/
-│   └── BaseLayout.astro # шапка, навигация, футер
-├── pages/
-│   ├── index.astro      # редирект на /ru
-│   └── [lang]/          # все страницы под /ru, /en, /ky
-│       ├── index.astro
-│       ├── about.astro
-│       ├── projects.astro
-│       └── blog/
-│           ├── index.astro
-│           └── [slug].astro
-└── styles/
-    └── global.css       # один CSS на весь сайт
+├─ app/(frontend)/[locale]/   pages of the site
+├─ app/(payload)/             admin panel and API
+├─ payload/                   collections, access rules, seed
+├─ payload.config.ts          Payload config
+├─ payload-types.ts           generated types
+├─ migrations/                database migrations
+├─ components/three/          3D scene (stage 3)
+├─ components/motion/         animations (stage 3)
+├─ components/ui/             header, footer, buttons
+├─ i18n/                      locales and navigation
+├─ lib/                       site facts and helpers
+└─ proxy.ts                   adds the locale to page URLs
+messages/                     interface texts: ru, en, ky
+content/blog/                 posts from the old Astro site, source for `npm run seed`
 ```
 
-## Как добавить новый пост
-
-Создай файл `.md` в `src/content/blog/{lang}/` с фронтматтером:
-
-```markdown
----
-title: "Название поста"
-description: "Краткое описание для SEO"
-pubDate: 2026-05-04
-lang: ru
----
-
-Текст поста здесь.
-```
-
-Поле `lang` обязательно — по нему пост попадает в нужный язык.
-Если хочешь сохранить как черновик — добавь `draft: true`.
-
-## Как изменить текст «обо мне»
-
-Открой `src/pages/[lang]/about.astro` — там объект `bio` с тремя версиями.
-
-## Как изменить проекты
-
-Открой `src/pages/[lang]/projects.astro` — массив `projects` для каждого языка.
-
-## Как изменить тексты в навигации/футере
-
-Открой `src/i18n/ui.ts` — все строки там.
-
-## Деплой на Cloudflare Pages
-
-1. Залей репо на GitHub
-2. На Cloudflare Pages → Connect to Git → выбери репо
-3. Настройки билда:
-   - Build command: `pnpm build`
-   - Build output directory: `dist`
-   - Node version: `20`
-4. Готово. Дальше можно подключить домен `abdillamit.com` через Custom domains.
-
-## Деплой на Vercel
-
-То же самое — Import Project → Astro определится автоматически → Deploy.
-
-## Команды
-
-```bash
-pnpm dev       # дев-сервер
-pnpm build     # сборка в dist/
-pnpm preview   # предпросмотр продакшн-сборки
-```
+Texts live in `messages/*.json`; Russian is the source, the other two
+files must have the same keys.

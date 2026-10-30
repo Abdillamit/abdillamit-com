@@ -1,0 +1,95 @@
+{
+  "Metadata": {
+    "title": "Abdillamit Mamytov — Full-Stack инженер",
+    "description": "Full-Stack инженер из Бишкека: React, TypeScript, Node.js и AWS. Проекты, опыт и контакты."
+  },
+  "Nav": {
+    "label": "Разделы сайта",
+    "home": "Главная",
+    "projects": "Проекты",
+    "about": "Обо мне",
+    "contact": "Контакты",
+    "menu": "Меню",
+    "close": "Закрыть",
+    "skip": "Перейти к содержанию"
+  },
+  "Locale": {
+    "label": "Язык",
+    "ru": "Русский",
+    "en": "English",
+    "ky": "Кыргызча"
+  },
+  "Footer": {
+    "role": "Full-Stack инженер · Бишкек",
+    "pages": "Страницы",
+    "elsewhere": "Где ещё",
+    "colophon": "Колофон",
+    "colophonText": "Next.js, Payload CMS и React Three Fiber. Исходники открыты на <link>GitHub</link>.",
+    "rights": "© {year} Abdillamit Mamytov, Бишкек"
+  },
+  "Home": {
+    "eyebrow": "Бишкек · UTC+6",
+    "role": "Full-Stack инженер",
+    "lede": "Делаю веб-приложения на React и TypeScript, бэкенд на Node.js и AWS serverless, и учу студентов frontend в Mancho School.",
+    "projectsCta": "Смотреть проекты",
+    "contactCta": "Написать мне"
+  },
+  "Projects": {
+    "title": "Проекты",
+    "intro": "Продукты, над которыми я работаю в Mancho Devs: финтех, логистика, паломничество и образование."
+  },
+  "About": {
+    "title": "Обо мне",
+    "lede": "Full-Stack инженер из Бишкека. В разработке с 2022 года.",
+    "story": [
+      "Я из села Баул Лейлекского района Баткенской области — самый юг Кыргызстана. В 9-м классе брат Данияр познакомил меня с ManchoDevs: я приехал в офис в Бишкеке, увидел команду за работой и понял, чем хочу заниматься.",
+      "Дома начал учиться сам: Udemy, YouTube, HTML, CSS, JavaScript, React. Писал мини-проекты и решал задачи на LeetCode — часто в перерывах между пастьбой скота. Нестандартный путь, но он привёл туда, куда надо."
+    ],
+    "experienceTitle": "Опыт",
+    "experience": [
+      {
+        "org": "Mancho Devs",
+        "role": "Full-Stack Software Engineer",
+        "period": "с сентября 2024",
+        "text": "Веб-приложения и админки для 5 продуктов компании, среди них finik.pay, umrahhajj, SlonExpress и mancho.school. Frontend на React и Gatsby, backend на Node.js, GraphQL и AWS. Тесты на Jest, React Testing Library и Cypress, CI/CD в GitHub Actions."
+      },
+      {
+        "org": "Mancho School",
+        "role": "Frontend-ментор",
+        "period": "с сентября 2024",
+        "text": "Обучил 20+ студентов frontend-разработке: лекции, воркшопы, code review, помощь с проектами."
+      },
+      {
+        "org": "MEGA (Alfa Telecom)",
+        "role": "Frontend-стажёр",
+        "period": "март — май 2023",
+        "text": "Делал функциональность продукта крупной телеком-компании на React и TypeScript."
+      },
+      {
+        "org": "Oigonuu NGO",
+        "role": "Frontend-ментор, волонтёр",
+        "period": "март — август 2022",
+        "text": "Учил HTML, CSS и JavaScript ребят из сёл, которым была нужна поддержка."
+      }
+    ],
+    "stackTitle": "Стек",
+    "stackGroups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "aws": "AWS serverless",
+      "tools": "Тесты и инструменты"
+    },
+    "mentoringTitle": "Менторство",
+    "mentoring": "С 2024 года веду лекции и воркшопы по frontend в Mancho School — той самой школе, где сам учился на Software Engineering. Делаю code review и помогаю студентам с проектами. А до этого волонтёром учил основам веба ребят из сёл в Oigonuu NGO."
+  },
+  "Contact": {
+    "title": "Контакты",
+    "intro": "Пишите мне про frontend, full-stack разработку или менторство.",
+    "direct": "Напрямую"
+  },
+  "NotFound": {
+    "title": "Такой страницы нет",
+    "text": "Возможно, ссылка устарела или в адресе опечатка.",
+    "home": "На главную"
+  }
+}
