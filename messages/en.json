@@ -1,0 +1,95 @@
+{
+  "Metadata": {
+    "title": "Abdillamit Mamytov — Full-Stack Engineer",
+    "description": "Full-Stack engineer in Bishkek: React, TypeScript, Node.js and AWS. Projects, experience and contacts."
+  },
+  "Nav": {
+    "label": "Site sections",
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "skip": "Skip to content"
+  },
+  "Locale": {
+    "label": "Language",
+    "ru": "Русский",
+    "en": "English",
+    "ky": "Кыргызча"
+  },
+  "Footer": {
+    "role": "Full-Stack Engineer · Bishkek",
+    "pages": "Pages",
+    "elsewhere": "Elsewhere",
+    "colophon": "Colophon",
+    "colophonText": "Next.js, Payload CMS and React Three Fiber. The source code is on <link>GitHub</link>.",
+    "rights": "© {year} Abdillamit Mamytov, Bishkek"
+  },
+  "Home": {
+    "eyebrow": "Bishkek · UTC+6",
+    "role": "Full-Stack Engineer",
+    "lede": "I build web apps with React and TypeScript, backends with Node.js and AWS serverless, and teach frontend at Mancho School.",
+    "projectsCta": "See the projects",
+    "contactCta": "Write to me"
+  },
+  "Projects": {
+    "title": "Projects",
+    "intro": "Products I work on at Mancho Devs: fintech, logistics, pilgrimage and education."
+  },
+  "About": {
+    "title": "About",
+    "lede": "Full-Stack engineer from Bishkek. Writing code since 2022.",
+    "story": [
+      "I'm from Baul village in Leilek district, Batken region — the far south of Kyrgyzstan. In 9th grade my brother Daniyar introduced me to ManchoDevs: I visited their office in Bishkek, saw the team at work and knew what I wanted to do.",
+      "Back home I taught myself: Udemy, YouTube, HTML, CSS, JavaScript, React. I built mini-projects and solved LeetCode problems, often in between herding cows and sheep. An unusual path, but it got me here."
+    ],
+    "experienceTitle": "Experience",
+    "experience": [
+      {
+        "org": "Mancho Devs",
+        "role": "Full-Stack Software Engineer",
+        "period": "since September 2024",
+        "text": "Web apps and admin panels for 5 company products, among them finik.pay, umrahhajj, SlonExpress and mancho.school. Frontend with React and Gatsby, backend with Node.js, GraphQL and AWS. Tests with Jest, React Testing Library and Cypress, CI/CD in GitHub Actions."
+      },
+      {
+        "org": "Mancho School",
+        "role": "Frontend Mentor",
+        "period": "since September 2024",
+        "text": "Taught frontend development to 20+ students: lectures, workshops, code review, help with projects."
+      },
+      {
+        "org": "MEGA (Alfa Telecom)",
+        "role": "Frontend Developer Intern",
+        "period": "March — May 2023",
+        "text": "Built features for a product of a large telecom company with React and TypeScript."
+      },
+      {
+        "org": "Oigonuu NGO",
+        "role": "Frontend Mentor, volunteer",
+        "period": "March — August 2022",
+        "text": "Taught HTML, CSS and JavaScript to young people from villages who needed support."
+      }
+    ],
+    "stackTitle": "Stack",
+    "stackGroups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "aws": "AWS serverless",
+      "tools": "Testing and tools"
+    },
+    "mentoringTitle": "Mentoring",
+    "mentoring": "Since 2024 I give frontend lectures and workshops at Mancho School, the same school where I studied software engineering. I review code and help students with their projects. Before that I volunteered at Oigonuu NGO, teaching web basics to young people from villages."
+  },
+  "Contact": {
+    "title": "Contact",
+    "intro": "Write to me about frontend, full-stack work or mentoring.",
+    "direct": "Directly"
+  },
+  "NotFound": {
+    "title": "This page does not exist",
+    "text": "The link may be out of date, or there is a typo in the address.",
+    "home": "Go to the home page"
+  }
+}

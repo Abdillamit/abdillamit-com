@@ -1,92 +1,48 @@
-# abdillamit.com
+# abdillamit.dev
 
-Личный сайт. Astro + TypeScript. Три языка: ru / en / ky.
+Portfolio of Abdillamit Mamytov, Full-Stack engineer from Bishkek.
+Russian, English and Kyrgyz.
 
-## Запуск локально
+The site is itself a demo of the stack:
 
-Нужен Node.js 20+ и pnpm.
+- **Next.js 16** (App Router), **TypeScript** strict, **Tailwind CSS 4**
+- **next-intl** for `/ru`, `/en` and `/ky`
+- **Payload CMS 3** inside the same Next.js app: admin panel, Postgres on Neon, uploads to S3
+- **React Three Fiber** for the 3D scene, **GSAP ScrollTrigger**, **Framer Motion**, **Lenis**, **Lottie**
+- Deployed on **Vercel**
+
+The work goes in stages: skeleton and i18n → Payload and the database →
+home page with 3D → projects and page transitions → contact form → SEO
+and performance.
+
+## Run locally
+
+Node.js 20.9 or newer.
 
 ```bash
-pnpm install
-pnpm dev
+cp .env.example .env.local   # fill in the values
+npm install
+npm run dev
 ```
 
-Сайт откроется на http://localhost:4321
+The site opens on http://localhost:3000 and redirects to your browser
+language (`/ru` by default).
 
-## Структура
+## Structure
 
 ```
 src/
-├── content/blog/        # посты блога
-│   ├── ru/              # русские
-│   ├── en/              # английские
-│   └── ky/              # кыргызские
-├── i18n/
-│   ├── ui.ts            # все строки интерфейса (3 языка)
-│   └── utils.ts         # хелперы
-├── layouts/
-│   └── BaseLayout.astro # шапка, навигация, футер
-├── pages/
-│   ├── index.astro      # редирект на /ru
-│   └── [lang]/          # все страницы под /ru, /en, /ky
-│       ├── index.astro
-│       ├── about.astro
-│       ├── projects.astro
-│       └── blog/
-│           ├── index.astro
-│           └── [slug].astro
-└── styles/
-    └── global.css       # один CSS на весь сайт
+├─ app/(frontend)/[locale]/   pages of the site
+├─ app/(payload)/             admin panel and API (stage 2)
+├─ components/three/          3D scene (stage 3)
+├─ components/motion/         animations (stage 3)
+├─ components/ui/             header, footer, buttons
+├─ i18n/                      locales and navigation
+├─ lib/                       site facts and helpers
+└─ proxy.ts                   adds the locale to page URLs
+messages/                     interface texts: ru, en, ky
+content/blog/                 posts from the old Astro site, moved to Payload in stage 2
 ```
 
-## Как добавить новый пост
-
-Создай файл `.md` в `src/content/blog/{lang}/` с фронтматтером:
-
-```markdown
----
-title: "Название поста"
-description: "Краткое описание для SEO"
-pubDate: 2026-05-04
-lang: ru
----
-
-Текст поста здесь.
-```
-
-Поле `lang` обязательно — по нему пост попадает в нужный язык.
-Если хочешь сохранить как черновик — добавь `draft: true`.
-
-## Как изменить текст «обо мне»
-
-Открой `src/pages/[lang]/about.astro` — там объект `bio` с тремя версиями.
-
-## Как изменить проекты
-
-Открой `src/pages/[lang]/projects.astro` — массив `projects` для каждого языка.
-
-## Как изменить тексты в навигации/футере
-
-Открой `src/i18n/ui.ts` — все строки там.
-
-## Деплой на Cloudflare Pages
-
-1. Залей репо на GitHub
-2. На Cloudflare Pages → Connect to Git → выбери репо
-3. Настройки билда:
-   - Build command: `pnpm build`
-   - Build output directory: `dist`
-   - Node version: `20`
-4. Готово. Дальше можно подключить домен `abdillamit.com` через Custom domains.
-
-## Деплой на Vercel
-
-То же самое — Import Project → Astro определится автоматически → Deploy.
-
-## Команды
-
-```bash
-pnpm dev       # дев-сервер
-pnpm build     # сборка в dist/
-pnpm preview   # предпросмотр продакшн-сборки
-```
+Texts live in `messages/*.json`; Russian is the source, the other two
+files must have the same keys.

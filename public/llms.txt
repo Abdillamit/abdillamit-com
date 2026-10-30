@@ -1,24 +1,17 @@
 # Abdillamit Mamytov
 
-> Software Engineer from Bishkek, Kyrgyzstan. Working at ManchoDevs since 2022.
+> Full-Stack engineer from Bishkek, Kyrgyzstan. Works at Mancho Devs and mentors frontend students at Mancho School.
 
 ## About
 
-Abdyllamit Mamytov is a software engineer based in Bishkek, Kyrgyzstan. He grew up in Baul village, Leilek district, Batken region — the far south of Kyrgyzstan. Self-taught through Udemy and YouTube while working in his home village, he joined ManchoDevs after being accepted to Mancho School.
+Abdillamit Mamytov grew up in Baul village, Leilek district, Batken region, in the far south of Kyrgyzstan. He taught himself with Udemy and YouTube, studied software engineering at Mancho School and since September 2024 works at Mancho Devs as a Full-Stack Software Engineer.
 
-He works on finik.kg (payment platform), slonexpress (delivery service), mancho.school (educational platform), and the ManchoDevs company site. His stack includes TypeScript, React, Gatsby.js, Apollo GraphQL, Redux, and AWS web services.
+He builds web apps and admin panels for products such as finik.pay (payments), SlonExpress (international logistics), umrahhajj (Hajj and Umrah management) and mancho.school (education). Stack: React, TypeScript, Apollo GraphQL, Redux, RxJS, Node.js, AWS serverless.
 
 ## Links
 
-- Website: https://abdillamit.com
+- Website: https://abdillamit.dev
 - GitHub: https://github.com/Abdillamit
-- LinkedIn: https://www.linkedin.com/in/abdillamit-mamytov/
+- LinkedIn: https://www.linkedin.com/in/abdillamit-mamytov
 - Telegram: https://t.me/Abd1llamit
 - Email: abdillamit08@gmail.com
-
-## Work
-
-- finik.kg — payment platform for businesses in Kyrgyzstan
-- slonexpress — delivery service web app
-- mancho.school — SWE courses by ManchoDevs
-- ManchoDevs — software company site (https://mancho.dev)
