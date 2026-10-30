@@ -1,16 +1,17 @@
 {
   "Metadata": {
     "title": "Abdillamit Mamytov — Full-Stack инженер",
-    "description": "Full-Stack инженер из Бишкека: React, TypeScript, Node.js и AWS. Проекты, опыт и контакты."
+    "description": "Full-Stack инженер из Бишкека: React, TypeScript, Node.js и AWS. Проекты, резюме, блог и контакты."
   },
   "Nav": {
     "label": "Разделы сайта",
     "home": "Главная",
     "projects": "Проекты",
     "about": "Обо мне",
+    "blog": "Блог",
     "contact": "Контакты",
     "menu": "Меню",
-    "close": "Закрыть",
+    "close": "Закрыть меню",
     "skip": "Перейти к содержанию"
   },
   "Locale": {
@@ -24,72 +25,262 @@
     "pages": "Страницы",
     "elsewhere": "Где ещё",
     "colophon": "Колофон",
-    "colophonText": "Next.js, Payload CMS и React Three Fiber. Исходники открыты на <link>GitHub</link>.",
-    "rights": "© {year} Abdillamit Mamytov, Бишкек"
+    "colophonText": "Шрифты Onest и JetBrains Mono, 3D на React Three Fiber, контент в Payload CMS. Сайт я написал вместе с <claude>Claude Code</claude>, исходники открыты на <link>GitHub</link>.",
+    "terminal": "Для любопытных есть терминал: нажмите ~ или <button>откройте его</button>.",
+    "rights": "© {year} Abdillamit Mamytov, Бишкек",
+    "stackLine": "Next.js · Payload CMS · React Three Fiber"
   },
   "Home": {
     "eyebrow": "Бишкек · UTC+6",
     "role": "Full-Stack инженер",
     "lede": "Делаю веб-приложения на React и TypeScript, бэкенд на Node.js и AWS serverless, и учу студентов frontend в Mancho School.",
     "projectsCta": "Смотреть проекты",
-    "contactCta": "Написать мне"
+    "contactCta": "Написать мне",
+    "scroll": "Листайте",
+    "stackLabel": "Стек",
+    "statsLabel": "Цифры",
+    "stats": [
+      { "value": 5, "suffix": "", "label": "продуктов в Mancho Devs" },
+      { "value": 20, "suffix": "+", "label": "студентов в Mancho School" },
+      { "value": 3, "suffix": "", "label": "недели на MVP umrahhajj" },
+      { "value": 2, "suffix": "+", "label": "года в коммерческой разработке" }
+    ],
+    "projectsEyebrow": "Проекты",
+    "projectsTitle": "Продукты, над которыми я работаю",
+    "allProjects": "Все проекты",
+    "aboutEyebrow": "Обо мне",
+    "aboutTitle": "Из горного села в продакшен",
+    "aboutText": "Я из села Баул Лейлекского района, самый юг Кыргызстана. Учился сам по Udemy и YouTube, решал LeetCode между пастьбой скота. Сейчас пишу админки, API и платёжные интерфейсы в Mancho Devs и учу frontend в Mancho School.",
+    "aboutMore": "Подробнее обо мне",
+    "jobsLabel": "Где я работал",
+    "jobs": [
+      { "period": "с 2024", "org": "Mancho Devs", "role": "Full-Stack Software Engineer" },
+      { "period": "с 2024", "org": "Mancho School", "role": "Frontend-ментор, 20+ студентов" },
+      { "period": "2023", "org": "MEGA (Alfa Telecom)", "role": "Frontend-стажёр" },
+      { "period": "2022", "org": "Oigonuu NGO", "role": "Frontend-ментор, волонтёр" }
+    ],
+    "blogEyebrow": "Блог",
+    "blogTitle": "Из блога",
+    "readPost": "Читать историю",
+    "ctaEyebrow": "Контакты",
+    "ctaTitle": "Давайте сделаем что-то полезное",
+    "ctaText": "Пишите про frontend, full-stack разработку или менторство."
+  },
+  "Card": {
+    "open": "Открыть",
+    "cover": "Обложка проекта {name}"
   },
   "Projects": {
     "title": "Проекты",
-    "intro": "Продукты, над которыми я работаю в Mancho Devs: финтех, логистика, паломничество и образование."
+    "intro": "Продукты, над которыми я работаю в Mancho Devs: финтех, логистика, паломничество и образование. Всё на этой странице приходит из Payload CMS.",
+    "view": "Вид",
+    "cards": "Карточки",
+    "list": "Список",
+    "empty": "Проекты появятся здесь, как только их опубликуют в админке."
+  },
+  "Project": {
+    "back": "Все проекты",
+    "facts": "Коротко",
+    "role": "Роль",
+    "period": "Период",
+    "stack": "Стек",
+    "links": "Ссылки",
+    "cover": "Обложка",
+    "what": "Что это",
+    "did": "Что я сделал",
+    "how": "Как устроено",
+    "more": "Подробнее",
+    "gallery": "Скриншоты",
+    "next": "Следующий проект"
   },
   "About": {
     "title": "Обо мне",
-    "lede": "Full-Stack инженер из Бишкека. В разработке с 2022 года.",
+    "lede": "Full-Stack инженер из Бишкека. В разработке с 2022 года, в коммерческой — с 2024-го.",
+    "storyTitle": "История",
     "story": [
       "Я из села Баул Лейлекского района Баткенской области — самый юг Кыргызстана. В 9-м классе брат Данияр познакомил меня с ManchoDevs: я приехал в офис в Бишкеке, увидел команду за работой и понял, чем хочу заниматься.",
-      "Дома начал учиться сам: Udemy, YouTube, HTML, CSS, JavaScript, React. Писал мини-проекты и решал задачи на LeetCode — часто в перерывах между пастьбой скота. Нестандартный путь, но он привёл туда, куда надо."
+      "Дома начал учиться сам: Udemy, YouTube, HTML, CSS, JavaScript, React. Писал мини-проекты и решал задачи на LeetCode — часто в перерывах между пастьбой скота. Нестандартный путь, но он привёл туда, куда надо.",
+      "Сейчас делаю веб-приложения и админки для пяти продуктов Mancho Devs и учу frontend в Mancho School — той самой школе, где сам учился на Software Engineering."
     ],
-    "experienceTitle": "Опыт",
+    "journeyEyebrow": "Путь",
+    "journeyTitle": "Учился сам, между пастбищами и LeetCode",
+    "journey": [
+      { "mark": "Баул", "title": "Начало", "text": "Деревня в Баткенской области. Учился сам по YouTube и Udemy, между пастбищами и LeetCode." },
+      { "mark": "2021", "title": "OKUU IT", "text": "Первый курс: HTML, CSS и JavaScript." },
+      { "mark": "2022", "title": "U.Skill.Z и Oigonuu NGO", "text": "Vue, React и Redux, сертификат UI Frontend Engineer. Волонтёром учил ребят из сёл основам веб-разработки." },
+      { "mark": "2023", "title": "MEGA и Mancho School", "text": "Стажировка frontend-разработчиком на React и TypeScript. Поступил в Mancho School на Software Engineering." },
+      { "mark": "2024", "title": "Mancho Devs", "text": "Full Stack Software Engineer. В том же году стал ментором в Mancho School." },
+      { "mark": "Сейчас", "title": "5 продуктов и 20+ студентов", "text": "Работаю над Finik, umrahhajj и SlonExpress. Веду лекции, воркшопы и code review в Mancho School." }
+    ],
+    "resumeEyebrow": "Резюме",
+    "resumeTitle": "Опыт, образование и навыки",
+    "resumeUpdated": "Обновлено 12 октября 2026",
+    "resumeDownload": "Скачать PDF",
+    "resumePdf": "/cv/Abdillamit_Mamytov_CV_RU.pdf",
+    "profileTitle": "Профиль",
+    "profile": "Full Stack разработчик, 2+ года коммерческого опыта в fintech и логистике. Стек: React, TypeScript, GraphQL, Node.js, AWS serverless. Менторю студентов frontend-направления в Mancho School.",
+    "experienceTitle": "Опыт работы",
     "experience": [
       {
         "org": "Mancho Devs",
-        "role": "Full-Stack Software Engineer",
-        "period": "с сентября 2024",
-        "text": "Веб-приложения и админки для 5 продуктов компании, среди них finik.pay, umrahhajj, SlonExpress и mancho.school. Frontend на React и Gatsby, backend на Node.js, GraphQL и AWS. Тесты на Jest, React Testing Library и Cypress, CI/CD в GitHub Actions."
+        "place": "Бишкек, офис",
+        "role": "Full Stack Software Engineer",
+        "period": "сентябрь 2024 — сейчас",
+        "items": [
+          { "label": "Full-stack разработка", "text": "Разрабатываю веб-приложения и admin-панели для 5 продуктов компании: frontend на React и Gatsby, backend на Node.js, GraphQL и AWS; проектирую API и модели данных." },
+          { "label": "Тесты и релизы", "text": "Пишу unit-, компонентные и E2E-тесты (Jest, React Testing Library, Cypress), поддерживаю CI/CD в GitHub Actions, разбираю production-инциденты по логам AWS CloudWatch." },
+          { "label": "Онбординг", "text": "Ввёл в проект umrahhajj нового frontend-разработчика и делал code review его PR." }
+        ]
       },
       {
         "org": "Mancho School",
-        "role": "Frontend-ментор",
-        "period": "с сентября 2024",
-        "text": "Обучил 20+ студентов frontend-разработке: лекции, воркшопы, code review, помощь с проектами."
+        "place": "Бишкек",
+        "role": "Frontend Mentor",
+        "period": "сентябрь 2024 — сейчас",
+        "items": [
+          { "label": "Менторство", "text": "Обучил 20+ студентов frontend-разработке: лекции, воркшопы, code review, помощь с проектами." }
+        ]
       },
       {
-        "org": "MEGA (Alfa Telecom)",
-        "role": "Frontend-стажёр",
+        "org": "MEGA (ЗАО «Альфа Телеком»)",
+        "place": "удалённо",
+        "role": "Frontend Developer Intern",
         "period": "март — май 2023",
-        "text": "Делал функциональность продукта крупной телеком-компании на React и TypeScript."
+        "items": [
+          { "label": "Frontend", "text": "Разрабатывал функциональность продукта крупной телеком-компании на React и TypeScript." }
+        ]
       },
       {
         "org": "Oigonuu NGO",
-        "role": "Frontend-ментор, волонтёр",
+        "place": "Кыргызстан, удалённо",
+        "role": "Frontend Mentor, волонтёр",
         "period": "март — август 2022",
-        "text": "Учил HTML, CSS и JavaScript ребят из сёл, которым была нужна поддержка."
+        "items": [
+          { "label": "Волонтёрство", "text": "Обучал HTML, CSS и JavaScript ребят из сёл, которым была нужна поддержка." }
+        ]
       }
     ],
-    "stackTitle": "Стек",
-    "stackGroups": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "aws": "AWS serverless",
-      "tools": "Тесты и инструменты"
-    },
+    "otherTitle": "Другие проекты",
+    "other": [
+      { "label": "Bitok.kg", "text": "Исправил ошибки криптообменника в балансах, комиссиях и расчёте курса." },
+      { "label": "Сайт Mancho", "text": "Поддерживал сайт на трёх языках (RU, KY, EN): UI, адаптивная вёрстка и анимации." }
+    ],
+    "educationTitle": "Образование и курсы",
+    "education": [
+      { "org": "Mancho School", "program": "Software Engineering", "period": "сентябрь 2023 — июнь 2024", "stack": "React, Gatsby, Redux, RxJS; Flutter, Bloc; Node.js, AWS (Lambda, DynamoDB, Cognito)" },
+      { "org": "U.Skill.Z", "program": "Frontend Web Developer, сертификат UI Frontend Engineer", "period": "июль — декабрь 2022", "stack": "JavaScript, TypeScript, Vue.js 2/3, Vuex, React, Redux, REST API" },
+      { "org": "OKUU IT", "program": "Frontend Web Developer", "period": "ноябрь 2021 — февраль 2022", "stack": "JavaScript, HTML, CSS" }
+    ],
+    "skillsTitle": "Навыки",
+    "skills": [
+      { "label": "Языки программирования", "text": "TypeScript, JavaScript, Dart." },
+      { "label": "Frontend", "text": "React, Gatsby, Apollo Client, Redux, RxJS, Styletron, HTML, CSS/SCSS, адаптивная вёрстка." },
+      { "label": "Backend", "text": "Node.js, GraphQL, проектирование API и моделей данных, role-based access control (RBAC)." },
+      { "label": "AWS", "text": "AppSync, Cognito, IAM, Lambda, API Gateway, DynamoDB, S3, CloudFront, CloudWatch, OpenSearch, EC2, EventBridge, CloudFormation, CodeCommit, CodeBuild, CodePipeline, Route 53." },
+      { "label": "Тесты и инструменты", "text": "Jest, React Testing Library, Cypress, Git, GitHub Actions." }
+    ],
+    "languagesTitle": "Языки",
+    "languages": "Кыргызский и русский: свободно. Английский: A2.",
+    "stackEyebrow": "Стек",
+    "stackTitle": "React на фронте, AWS за ним",
+    "stackFiles": "Файлы",
+    "stackNotes": [
+      { "label": "Тесты", "text": "Unit-, компонентные и E2E-тесты на Jest, React Testing Library и Cypress." },
+      { "label": "Релизы", "text": "CI/CD в GitHub Actions и CodePipeline." },
+      { "label": "Production", "text": "Инциденты разбираю по логам AWS CloudWatch." }
+    ],
     "mentoringTitle": "Менторство",
     "mentoring": "С 2024 года веду лекции и воркшопы по frontend в Mancho School — той самой школе, где сам учился на Software Engineering. Делаю code review и помогаю студентам с проектами. А до этого волонтёром учил основам веба ребят из сёл в Oigonuu NGO."
   },
+  "Blog": {
+    "title": "Блог",
+    "intro": "Истории и заметки о том, как я пришёл в разработку и чему учусь.",
+    "read": "Читать",
+    "minRead": "{count} мин чтения",
+    "back": "Все записи",
+    "empty": "Записей пока нет.",
+    "nextTitle": "Дальше",
+    "next": "Новые статьи появятся здесь. Чтобы увидеть их первым, следите за мной в <link>LinkedIn</link>.",
+    "aboutAuthor": "Об авторе"
+  },
   "Contact": {
     "title": "Контакты",
-    "intro": "Пишите мне про frontend, full-stack разработку или менторство.",
-    "direct": "Напрямую"
+    "intro": "Пишите про frontend, full-stack разработку или менторство. Можно через форму или напрямую.",
+    "direct": "Напрямую",
+    "rows": {
+      "email": "Почта",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "form": {
+      "label": "Форма для сообщения",
+      "name": "Имя",
+      "email": "Почта",
+      "message": "Сообщение",
+      "honeypot": "Не заполняйте это поле",
+      "nameError": "Как к вам обращаться?",
+      "emailError": "Проверьте адрес почты",
+      "messageError": "Напишите хотя бы пару предложений",
+      "limited": "Слишком много сообщений подряд. Попробуйте через 10 минут.",
+      "failed": "Не получилось отправить. Попробуйте ещё раз или напишите на почту.",
+      "note": "Сообщение попадёт в админку сайта",
+      "send": "Отправить",
+      "sending": "Отправляю…",
+      "sent": "Сообщение отправлено",
+      "thanks": "Спасибо, {name}! Я прочитаю его и отвечу на почту.",
+      "again": "Написать ещё"
+    }
   },
   "NotFound": {
     "title": "Такой страницы нет",
     "text": "Возможно, ссылка устарела или в адресе опечатка.",
     "home": "На главную"
+  },
+  "Terminal": {
+    "title": "Терминал",
+    "close": "Закрыть терминал",
+    "input": "Команда",
+    "banner": "Наберите help, чтобы увидеть команды.",
+    "helpTitle": "Команды:",
+    "help": {
+      "whoami": "кто я",
+      "ls": "что здесь есть",
+      "cat": "прочитать файл: about.txt, contacts.txt",
+      "cd": "открыть страницу: projects, about, blog, contact",
+      "projects": "чем я занимаюсь",
+      "contact": "как со мной связаться",
+      "cv": "скачать резюме (PDF)",
+      "lang": "сменить язык",
+      "clear": "очистить экран",
+      "exit": "закрыть терминал (или Esc)",
+      "hint": "Tab дополняет команду, ↑ и ↓ листают историю."
+    },
+    "whoami": "Abdillamit Mamytov — Full Stack Software Engineer, Бишкек.",
+    "work": [
+      { "name": "Finik", "text": "админка платёжной платформы, документация и Web SDK для мерчантов." },
+      { "name": "SlonExpress", "text": "логистическая платформа на React, Node.js и AWS Lambda." },
+      { "name": "umrahhajj", "text": "MVP примерно за 3 недели на React, Apollo и RxJS." },
+      { "name": "Mancho School", "text": "лекции, воркшопы и code review для студентов." }
+    ],
+    "catUsage": "использование: cat <файл>",
+    "catMissing": "cat: {file}: нет такого файла",
+    "resumeBinary": "resume.pdf — бинарный файл. Наберите cv, чтобы скачать его.",
+    "hireComment": "# нужны права root: sudo ./hire-me.sh",
+    "cdNotDir": "cd: {name}: это не папка",
+    "cdMissing": "cd: {name}: нет такой папки",
+    "downloading": "Скачиваю ",
+    "langCurrent": "Язык: русский. Использование: lang ru|en|ky",
+    "langSame": "Уже на русском.",
+    "city": "Бишкек",
+    "sudoPassword": "[sudo] пароль для guest: ********",
+    "sudoGranted": "Доступ разрешён. Открываю письмо Абдилламиту…",
+    "sudoDenied": "guest нет в файле sudoers. Об этом случае будет доложено.",
+    "mailSubject": "Давай поработаем вместе",
+    "denied": "{name}: доступ запрещён. Попробуйте sudo.",
+    "rm": "rm: хорошая попытка. Удалять тут нечего.",
+    "git": "Исходники лежат на ",
+    "sheep": "Бээ! Привет с пастбищ Баула.",
+    "unknown": "{name}: команда не найдена. Наберите help."
   }
 }

@@ -138,6 +138,29 @@ export interface Project {
    * For the card and the search description.
    */
   summary: string;
+  /**
+   * One line under the title on the project page.
+   */
+  tagline?: string | null;
+  intro?: string | null;
+  highlights?:
+    | {
+        title: string;
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Parts of the product from top to bottom: UI, API, data…
+   */
+  layers?:
+    | {
+        tag: string;
+        title: string;
+        sub?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   description?: {
     root: {
       type: string;
@@ -156,6 +179,7 @@ export interface Project {
   role?: string | null;
   period?: string | null;
   cover?: (number | null) | Media;
+  tone?: ('amber' | 'blue' | 'sand' | 'green') | null;
   gallery?:
     | {
         image: number | Media;
@@ -179,6 +203,7 @@ export interface Project {
    * Latin letters, no spaces. Empty — taken from the title.
    */
   slug: string;
+  company?: string | null;
   /**
    * Lower comes first.
    */
@@ -417,10 +442,28 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   kind?: T;
   summary?: T;
+  tagline?: T;
+  intro?: T;
+  highlights?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        id?: T;
+      };
+  layers?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        sub?: T;
+        id?: T;
+      };
   description?: T;
   role?: T;
   period?: T;
   cover?: T;
+  tone?: T;
   gallery?:
     | T
     | {
@@ -438,6 +481,7 @@ export interface ProjectsSelect<T extends boolean = true> {
         id?: T;
       };
   slug?: T;
+  company?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;

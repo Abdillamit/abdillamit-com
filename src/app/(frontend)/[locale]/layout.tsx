@@ -4,6 +4,9 @@ import { NextIntlClientProvider } from "next-intl"
 import { getTranslations } from "next-intl/server"
 import type { ReactNode } from "react"
 
+import { MotionRoot } from "@/components/motion/MotionRoot"
+import { PageTransition } from "@/components/motion/PageTransition"
+import { TerminalProvider } from "@/components/terminal/TerminalProvider"
 import { Footer } from "@/components/ui/Footer"
 import { Header } from "@/components/ui/Header"
 import { enterLocale, readLocale, type LocaleParams } from "@/i18n/params"
@@ -59,11 +62,15 @@ export default async function LocaleLayout({ children, params }: Props) {
           {t("skip")}
         </a>
         <NextIntlClientProvider>
-          <Header />
-          <main id="content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <MotionRoot>
+            <TerminalProvider>
+              <Header />
+              <main id="content" className="flex-1">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+            </TerminalProvider>
+          </MotionRoot>
         </NextIntlClientProvider>
       </body>
     </html>

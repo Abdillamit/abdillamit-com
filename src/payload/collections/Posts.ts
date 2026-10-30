@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload"
 
 import { isStaff, publishedOrStaff } from "../access"
+import { revalidateAfterChange, revalidateAfterDelete } from "../hooks/revalidate"
 import { label, slugField } from "../fields"
 
 // Blog posts. One document holds all three languages of a post.
@@ -25,6 +26,10 @@ export const Posts: CollectionConfig = {
     create: isStaff,
     update: isStaff,
     delete: isStaff,
+  },
+  hooks: {
+    afterChange: [revalidateAfterChange],
+    afterDelete: [revalidateAfterDelete],
   },
   fields: [
     {

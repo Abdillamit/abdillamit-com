@@ -1,16 +1,17 @@
 {
   "Metadata": {
-    "title": "Abdillamit Mamytov — Full-Stack Engineer",
-    "description": "Full-Stack engineer in Bishkek: React, TypeScript, Node.js and AWS. Projects, experience and contacts."
+    "title": "Abdillamit Mamytov — Full-Stack engineer",
+    "description": "Full-Stack engineer in Bishkek: React, TypeScript, Node.js and AWS. Projects, resume, blog and contacts."
   },
   "Nav": {
     "label": "Site sections",
     "home": "Home",
     "projects": "Projects",
     "about": "About",
+    "blog": "Blog",
     "contact": "Contact",
     "menu": "Menu",
-    "close": "Close",
+    "close": "Close the menu",
     "skip": "Skip to content"
   },
   "Locale": {
@@ -20,76 +21,266 @@
     "ky": "Кыргызча"
   },
   "Footer": {
-    "role": "Full-Stack Engineer · Bishkek",
+    "role": "Full-Stack engineer · Bishkek",
     "pages": "Pages",
     "elsewhere": "Elsewhere",
     "colophon": "Colophon",
-    "colophonText": "Next.js, Payload CMS and React Three Fiber. The source code is on <link>GitHub</link>.",
-    "rights": "© {year} Abdillamit Mamytov, Bishkek"
+    "colophonText": "Set in Onest and JetBrains Mono, 3D with React Three Fiber, content in Payload CMS. I built it together with <claude>Claude Code</claude>; the source code is on <link>GitHub</link>.",
+    "terminal": "For the curious there is a terminal: press ~ or <button>open it</button>.",
+    "rights": "© {year} Abdillamit Mamytov, Bishkek",
+    "stackLine": "Next.js · Payload CMS · React Three Fiber"
   },
   "Home": {
     "eyebrow": "Bishkek · UTC+6",
-    "role": "Full-Stack Engineer",
+    "role": "Full-Stack engineer",
     "lede": "I build web apps with React and TypeScript, backends with Node.js and AWS serverless, and teach frontend at Mancho School.",
     "projectsCta": "See the projects",
-    "contactCta": "Write to me"
+    "contactCta": "Write to me",
+    "scroll": "Scroll",
+    "stackLabel": "Stack",
+    "statsLabel": "In numbers",
+    "stats": [
+      { "value": 5, "suffix": "", "label": "products at Mancho Devs" },
+      { "value": 20, "suffix": "+", "label": "students at Mancho School" },
+      { "value": 3, "suffix": "", "label": "weeks to the umrahhajj MVP" },
+      { "value": 2, "suffix": "+", "label": "years of commercial work" }
+    ],
+    "projectsEyebrow": "Projects",
+    "projectsTitle": "Products I work on",
+    "allProjects": "All projects",
+    "aboutEyebrow": "About",
+    "aboutTitle": "From a mountain village to production",
+    "aboutText": "I come from Baul, a village in Leylek District in the far south of Kyrgyzstan. I taught myself with Udemy and YouTube and solved LeetCode between herding cattle. Now I build admin panels, APIs and payment interfaces at Mancho Devs and teach frontend at Mancho School.",
+    "aboutMore": "More about me",
+    "jobsLabel": "Where I have worked",
+    "jobs": [
+      { "period": "since 2024", "org": "Mancho Devs", "role": "Full-Stack Software Engineer" },
+      { "period": "since 2024", "org": "Mancho School", "role": "Frontend mentor, 20+ students" },
+      { "period": "2023", "org": "MEGA (Alfa Telecom)", "role": "Frontend intern" },
+      { "period": "2022", "org": "Oigonuu NGO", "role": "Frontend mentor, volunteer" }
+    ],
+    "blogEyebrow": "Blog",
+    "blogTitle": "From the blog",
+    "readPost": "Read the story",
+    "ctaEyebrow": "Contact",
+    "ctaTitle": "Let’s build something useful",
+    "ctaText": "Write to me about frontend, full-stack work or mentoring."
+  },
+  "Card": {
+    "open": "Open",
+    "cover": "Cover of {name}"
   },
   "Projects": {
     "title": "Projects",
-    "intro": "Products I work on at Mancho Devs: fintech, logistics, pilgrimage and education."
+    "intro": "Products I work on at Mancho Devs: fintech, logistics, pilgrimage and education. Everything on this page comes from Payload CMS.",
+    "view": "View",
+    "cards": "Cards",
+    "list": "List",
+    "empty": "Projects will appear here once they are published in the admin panel."
+  },
+  "Project": {
+    "back": "All projects",
+    "facts": "In short",
+    "role": "Role",
+    "period": "Period",
+    "stack": "Stack",
+    "links": "Links",
+    "cover": "Cover",
+    "what": "What it is",
+    "did": "What I did",
+    "how": "How it is built",
+    "more": "More",
+    "gallery": "Screenshots",
+    "next": "Next project"
   },
   "About": {
     "title": "About",
-    "lede": "Full-Stack engineer from Bishkek. Writing code since 2022.",
+    "lede": "Full-Stack engineer in Bishkek. Writing code since 2022, commercially since 2024.",
+    "storyTitle": "Story",
     "story": [
-      "I'm from Baul village in Leilek district, Batken region — the far south of Kyrgyzstan. In 9th grade my brother Daniyar introduced me to ManchoDevs: I visited their office in Bishkek, saw the team at work and knew what I wanted to do.",
-      "Back home I taught myself: Udemy, YouTube, HTML, CSS, JavaScript, React. I built mini-projects and solved LeetCode problems, often in between herding cows and sheep. An unusual path, but it got me here."
+      "I come from Baul, a village in Leylek District of Batken Region, the far south of Kyrgyzstan. In 9th grade my brother Daniyar introduced me to ManchoDevs: I came to their office in Bishkek, saw the team at work and knew what I wanted to do.",
+      "Back home I started teaching myself: Udemy, YouTube, HTML, CSS, JavaScript, React. I built small projects and solved LeetCode problems, often in breaks between herding cattle. An unusual path, but it led where it had to.",
+      "Now I build web apps and admin panels for five Mancho Devs products and teach frontend at Mancho School, the same school where I studied Software Engineering."
     ],
+    "journeyEyebrow": "Journey",
+    "journeyTitle": "Self-taught, between pastures and LeetCode",
+    "journey": [
+      { "mark": "Baul", "title": "Where it started", "text": "A village in Batken Region. I taught myself with YouTube and Udemy, between pastures and LeetCode." },
+      { "mark": "2021", "title": "OKUU IT", "text": "First course: HTML, CSS and JavaScript." },
+      { "mark": "2022", "title": "U.Skill.Z and Oigonuu NGO", "text": "Vue, React and Redux, UI Frontend Engineer certificate. Volunteered teaching web basics to young people from villages." },
+      { "mark": "2023", "title": "MEGA and Mancho School", "text": "Frontend intern on React and TypeScript. Joined the Software Engineering program at Mancho School." },
+      { "mark": "2024", "title": "Mancho Devs", "text": "Full Stack Software Engineer. The same year I became a mentor at Mancho School." },
+      { "mark": "Now", "title": "5 products and 20+ students", "text": "Working on Finik, umrahhajj and SlonExpress. Lectures, workshops and code review at Mancho School." }
+    ],
+    "resumeEyebrow": "Resume",
+    "resumeTitle": "Experience, education and skills",
+    "resumeUpdated": "Updated October 12, 2026",
+    "resumeDownload": "Download PDF",
+    "resumePdf": "/cv/Abdillamit_Mamytov_CV_EN.pdf",
+    "profileTitle": "Profile",
+    "profile": "Full Stack developer with 2+ years of commercial experience in fintech and logistics. Stack: React, TypeScript, GraphQL, Node.js, AWS serverless. I mentor frontend students at Mancho School.",
     "experienceTitle": "Experience",
     "experience": [
       {
         "org": "Mancho Devs",
-        "role": "Full-Stack Software Engineer",
-        "period": "since September 2024",
-        "text": "Web apps and admin panels for 5 company products, among them finik.pay, umrahhajj, SlonExpress and mancho.school. Frontend with React and Gatsby, backend with Node.js, GraphQL and AWS. Tests with Jest, React Testing Library and Cypress, CI/CD in GitHub Actions."
+        "place": "Bishkek, office",
+        "role": "Full Stack Software Engineer",
+        "period": "September 2024 — present",
+        "items": [
+          { "label": "Full-stack development", "text": "I build web apps and admin panels for 5 company products: frontend with React and Gatsby, backend with Node.js, GraphQL and AWS. I design APIs and data models." },
+          { "label": "Tests and releases", "text": "I write unit, component and E2E tests (Jest, React Testing Library, Cypress), maintain CI/CD in GitHub Actions and investigate production incidents using AWS CloudWatch logs." },
+          { "label": "Onboarding", "text": "Onboarded a new frontend developer to the umrahhajj project and reviewed their pull requests." }
+        ]
       },
       {
         "org": "Mancho School",
+        "place": "Bishkek",
         "role": "Frontend Mentor",
-        "period": "since September 2024",
-        "text": "Taught frontend development to 20+ students: lectures, workshops, code review, help with projects."
+        "period": "September 2024 — present",
+        "items": [
+          { "label": "Mentoring", "text": "Taught frontend development to 20+ students: lectures, workshops, code review, help with projects." }
+        ]
       },
       {
-        "org": "MEGA (Alfa Telecom)",
+        "org": "MEGA (Alfa Telecom CJSC)",
+        "place": "remote",
         "role": "Frontend Developer Intern",
         "period": "March — May 2023",
-        "text": "Built features for a product of a large telecom company with React and TypeScript."
+        "items": [
+          { "label": "Frontend", "text": "Built features for a product of a large telecom company with React and TypeScript." }
+        ]
       },
       {
         "org": "Oigonuu NGO",
+        "place": "Kyrgyzstan, remote",
         "role": "Frontend Mentor, volunteer",
         "period": "March — August 2022",
-        "text": "Taught HTML, CSS and JavaScript to young people from villages who needed support."
+        "items": [
+          { "label": "Volunteering", "text": "Taught HTML, CSS and JavaScript to young people from villages who needed support." }
+        ]
       }
     ],
-    "stackTitle": "Stack",
-    "stackGroups": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "aws": "AWS serverless",
-      "tools": "Testing and tools"
-    },
+    "otherTitle": "Other projects",
+    "other": [
+      { "label": "Bitok.kg", "text": "Fixed crypto exchange bugs in balances, fees and exchange rate calculation." },
+      { "label": "Mancho website", "text": "Maintained the site in three languages (RU, KY, EN): UI, responsive layout and animations." }
+    ],
+    "educationTitle": "Education and courses",
+    "education": [
+      { "org": "Mancho School", "program": "Software Engineering", "period": "September 2023 — June 2024", "stack": "React, Gatsby, Redux, RxJS; Flutter, Bloc; Node.js, AWS (Lambda, DynamoDB, Cognito)" },
+      { "org": "U.Skill.Z", "program": "Frontend Web Developer, UI Frontend Engineer certificate", "period": "July — December 2022", "stack": "JavaScript, TypeScript, Vue.js 2/3, Vuex, React, Redux, REST API" },
+      { "org": "OKUU IT", "program": "Frontend Web Developer", "period": "November 2021 — February 2022", "stack": "JavaScript, HTML, CSS" }
+    ],
+    "skillsTitle": "Skills",
+    "skills": [
+      { "label": "Programming languages", "text": "TypeScript, JavaScript, Dart." },
+      { "label": "Frontend", "text": "React, Gatsby, Apollo Client, Redux, RxJS, Styletron, HTML, CSS/SCSS, responsive layout." },
+      { "label": "Backend", "text": "Node.js, GraphQL, API and data model design, role-based access control (RBAC)." },
+      { "label": "AWS", "text": "AppSync, Cognito, IAM, Lambda, API Gateway, DynamoDB, S3, CloudFront, CloudWatch, OpenSearch, EC2, EventBridge, CloudFormation, CodeCommit, CodeBuild, CodePipeline, Route 53." },
+      { "label": "Testing and tools", "text": "Jest, React Testing Library, Cypress, Git, GitHub Actions." }
+    ],
+    "languagesTitle": "Languages",
+    "languages": "Kyrgyz and Russian: fluent. English: A2.",
+    "stackEyebrow": "Stack",
+    "stackTitle": "React on the front, AWS behind it",
+    "stackFiles": "Files",
+    "stackNotes": [
+      { "label": "Tests", "text": "Unit, component and E2E tests with Jest, React Testing Library and Cypress." },
+      { "label": "Releases", "text": "CI/CD in GitHub Actions and CodePipeline." },
+      { "label": "Production", "text": "Incidents traced through AWS CloudWatch logs." }
+    ],
     "mentoringTitle": "Mentoring",
-    "mentoring": "Since 2024 I give frontend lectures and workshops at Mancho School, the same school where I studied software engineering. I review code and help students with their projects. Before that I volunteered at Oigonuu NGO, teaching web basics to young people from villages."
+    "mentoring": "Since 2024 I have given frontend lectures and workshops at Mancho School, the same school where I studied Software Engineering. I review code and help students with their projects. Before that I volunteered at Oigonuu NGO, teaching web basics to young people from villages."
+  },
+  "Blog": {
+    "title": "Blog",
+    "intro": "Stories and notes about how I got into software engineering and what I am learning.",
+    "read": "Read",
+    "minRead": "{count} min read",
+    "back": "All posts",
+    "empty": "No posts yet.",
+    "nextTitle": "Next",
+    "next": "New posts will appear here. To see them first, follow me on <link>LinkedIn</link>.",
+    "aboutAuthor": "About the author"
   },
   "Contact": {
     "title": "Contact",
-    "intro": "Write to me about frontend, full-stack work or mentoring.",
-    "direct": "Directly"
+    "intro": "Write to me about frontend, full-stack work or mentoring. Use the form or reach me directly.",
+    "direct": "Directly",
+    "rows": {
+      "email": "Email",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "form": {
+      "label": "Message form",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "honeypot": "Leave this field empty",
+      "nameError": "What should I call you?",
+      "emailError": "Check the email address",
+      "messageError": "Write at least a couple of sentences",
+      "limited": "Too many messages in a row. Try again in 10 minutes.",
+      "failed": "The message did not go through. Try again or write to my email.",
+      "note": "The message goes to the site’s admin panel",
+      "send": "Send",
+      "sending": "Sending…",
+      "sent": "Message sent",
+      "thanks": "Thank you, {name}! I will read it and reply by email.",
+      "again": "Write another"
+    }
   },
   "NotFound": {
-    "title": "This page does not exist",
+    "title": "There is no such page",
     "text": "The link may be out of date, or there is a typo in the address.",
-    "home": "Go to the home page"
+    "home": "Go home"
+  },
+  "Terminal": {
+    "title": "Terminal",
+    "close": "Close the terminal",
+    "input": "Command",
+    "banner": "Type help to see the commands.",
+    "helpTitle": "Commands:",
+    "help": {
+      "whoami": "who I am",
+      "ls": "what is here",
+      "cat": "read a file: about.txt, contacts.txt",
+      "cd": "open a page: projects, about, blog, contact",
+      "projects": "what I work on",
+      "contact": "how to reach me",
+      "cv": "download the resume (PDF)",
+      "lang": "switch the language",
+      "clear": "clear the screen",
+      "exit": "close the terminal (or Esc)",
+      "hint": "Tab completes a command, ↑ and ↓ go through history."
+    },
+    "whoami": "Abdillamit Mamytov — Full Stack Software Engineer, Bishkek.",
+    "work": [
+      { "name": "Finik", "text": "admin panel of a payment platform, documentation and Web SDK for merchants." },
+      { "name": "SlonExpress", "text": "logistics platform on React, Node.js and AWS Lambda." },
+      { "name": "umrahhajj", "text": "MVP in about 3 weeks with React, Apollo and RxJS." },
+      { "name": "Mancho School", "text": "lectures, workshops and code review for students." }
+    ],
+    "catUsage": "usage: cat <file>",
+    "catMissing": "cat: {file}: No such file",
+    "resumeBinary": "resume.pdf is a binary file. Try cv to download it.",
+    "hireComment": "# needs root: sudo ./hire-me.sh",
+    "cdNotDir": "cd: {name}: Not a directory",
+    "cdMissing": "cd: {name}: No such directory",
+    "downloading": "Downloading ",
+    "langCurrent": "Language: English. Usage: lang ru|en|ky",
+    "langSame": "Already in English.",
+    "city": "Bishkek",
+    "sudoPassword": "[sudo] password for guest: ********",
+    "sudoGranted": "Access granted. Opening an email to Abdillamit…",
+    "sudoDenied": "guest is not in the sudoers file. This incident will be reported.",
+    "mailSubject": "Let's work together",
+    "denied": "{name}: permission denied. Try sudo.",
+    "rm": "rm: nice try. There is nothing to delete here.",
+    "git": "The source code is on ",
+    "sheep": "Baa! Greetings from the pastures of Baul.",
+    "unknown": "{name}: command not found. Type help."
   }
 }

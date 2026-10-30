@@ -27,7 +27,7 @@ const editorConfig = await editorConfigFactory.default({
 })
 
 const toRichText = (markdown: string) =>
-  convertMarkdownToLexical({ editorConfig, markdown }) as Project["description"]
+  convertMarkdownToLexical({ editorConfig, markdown }) as Post["content"]
 
 const findId = async (collection: "projects" | "posts", slug: string) => {
   const { docs } = await payload.find({
@@ -48,7 +48,8 @@ const parseMarkdown = (source: string) => {
   if (!match) throw new Error("No front matter")
 
   const meta: Record<string, string> = {}
-  for (const line of match[1].split("\n")) {
+  const [, head = "", body = ""] = match
+  for (const line of head.split("\n")) {
     const colon = line.indexOf(":")
     if (colon === -1) continue
     meta[line.slice(0, colon).trim()] = line
@@ -56,16 +57,20 @@ const parseMarkdown = (source: string) => {
       .trim()
       .replace(/^"(.*)"$/, "$1")
   }
-  return { meta, body: match[2].trim() }
+  return { meta, body: body.trim() }
 }
 
 // --- Projects ---------------------------------------------------------------
 
+type RowIds = (string | null | undefined)[]
+const rowIds = (rows?: { id?: string | null }[] | null): RowIds =>
+  (rows ?? []).map((row) => row.id)
+
 for (const project of seedProjects) {
   let id = await findId("projects", project.slug)
-  // Rows of the links array are shared; only their labels differ per
-  // language, so later languages must point at the same row ids.
-  let linkIds: (string | null | undefined)[] = []
+  // Array rows are shared between languages; only their texts differ, so
+  // the second and third language must point at the same row ids.
+  let ids = { links: [] as RowIds, highlights: [] as RowIds, layers: [] as RowIds }
 
   for (const locale of locales) {
     const text = project.content[locale]
@@ -73,14 +78,30 @@ for (const project of seedProjects) {
       title: project.title,
       slug: project.slug,
       order: project.order,
+      tone: project.tone,
+      company: "Mancho Devs",
       stack: project.stack,
       kind: text.kind,
+      tagline: text.tagline,
       summary: text.summary,
+      intro: text.intro,
       role: text.role || null,
       period: text.period || null,
-      description: toRichText(text.description),
+      // The long story is optional; an older seed put the highlights there
+      description: null,
+      highlights: text.highlights.map((item, index) => ({
+        id: ids.highlights[index],
+        title: item.title,
+        text: item.text,
+      })),
+      layers: text.layers.map((layer, index) => ({
+        id: ids.layers[index],
+        tag: project.layerTags[index] ?? "",
+        title: layer.title,
+        sub: layer.sub,
+      })),
       links: project.links.map((link, index) => ({
-        id: linkIds[index],
+        id: ids.links[index],
         kind: link.kind,
         url: link.url,
         label: link.label,
@@ -93,7 +114,11 @@ for (const project of seedProjects) {
       : await payload.create({ collection: "projects", locale, data })
 
     id = doc.id
-    linkIds = (doc.links ?? []).map((link) => link.id)
+    ids = {
+      links: rowIds(doc.links),
+      highlights: rowIds(doc.highlights),
+      layers: rowIds(doc.layers),
+    }
   }
 
   payload.logger.info(`project: ${project.slug}`)
@@ -119,11 +144,11 @@ for (const file of files) {
 
     const { meta, body } = parseMarkdown(source)
     const data = {
-      title: meta.title,
+      title: meta.title ?? slug,
       description: meta.description || null,
       slug,
-      publishedAt: new Date(meta.pubDate).toISOString(),
-      content: toRichText(body) as Post["content"],
+      publishedAt: new Date(meta.pubDate ?? Date.now()).toISOString(),
+      content: toRichText(body),
       _status: "published" as const,
     }
 

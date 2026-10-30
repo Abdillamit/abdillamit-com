@@ -18,6 +18,17 @@ const mediaHost = (() => {
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // The old Gatsby site had a separate resume page; it is now part of About
+  async redirects() {
+    return [
+      { source: "/resume", destination: "/en/about#resume", permanent: true },
+      {
+        source: "/:locale(ru|en|ky)/resume",
+        destination: "/:locale/about#resume",
+        permanent: true,
+      },
+    ]
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: mediaHost

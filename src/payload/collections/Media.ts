@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload"
 
 import { anyone, isStaff } from "../access"
+import { revalidateAfterChange, revalidateAfterDelete } from "../hooks/revalidate"
 import { label } from "../fields"
 
 // Images for projects and posts. With S3 configured the files go to the
@@ -19,6 +20,10 @@ export const Media: CollectionConfig = {
     create: isStaff,
     update: isStaff,
     delete: isStaff,
+  },
+  hooks: {
+    afterChange: [revalidateAfterChange],
+    afterDelete: [revalidateAfterDelete],
   },
   upload: {
     mimeTypes: ["image/*"],
